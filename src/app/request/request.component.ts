@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RequestService } from 'src/services/request.service';
 
 @Component({
   selector: 'app-request',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestComponent implements OnInit {
 
-  constructor() { }
+  empRequest : any = {}
+
+  constructor( private _request : RequestService , private _router : Router) { }
 
   ngOnInit(): void {
+  }
+
+  sendRequest(){
+    this._request.sendRequest(this.empRequest)
+    .subscribe({
+      complete: () => { window.alert("Success"), this._router.navigate(['/statusrequest']) }, // completeHandler
+      error: () => { console.log("Error") },    // errorHandler 
+  });
   }
 
 }
