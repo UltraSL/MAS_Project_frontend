@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -20,6 +20,7 @@ import { StatusrequestComponent } from './statusrequest/statusrequest.component'
     AppComponent,
     LoginComponent,
     HomeComponent,
+ 
     ForgetPasswordComponent,
     EditProfileComponent,
     DashboardComponent,
@@ -31,6 +32,7 @@ import { StatusrequestComponent } from './statusrequest/statusrequest.component'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [AuthService],
