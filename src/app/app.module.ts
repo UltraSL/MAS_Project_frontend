@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -15,6 +15,8 @@ import { NotificationComponent } from './notification/notification.component';
 import { RequestComponent } from './request/request.component';
 import { StatusrequestComponent } from './statusrequest/statusrequest.component';
 
+import { RegistrationComponent } from './registration/registration.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,12 +28,15 @@ import { StatusrequestComponent } from './statusrequest/statusrequest.component'
     DashboardComponent,
     NotificationComponent,
     RequestComponent,
-    StatusrequestComponent
+    StatusrequestComponent,
+ 
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+
     ReactiveFormsModule,
     HttpClientModule
   ],
