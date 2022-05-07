@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
         if (res.code == 200 && res.success == true) {
           console.log(res);
           localStorage.setItem('token', res.token);
-          localStorage.setItem('user', JSON.stringify(res.user));
+          localStorage.setItem('user', JSON.stringify(res.token));
           localStorage.setItem('password', this.loginUserData.password);
-          this._router.navigate(['/home']).then(() => {
+          this._router.navigate(['/dashboard']).then(() => {
             window.location.reload();
           });
         }

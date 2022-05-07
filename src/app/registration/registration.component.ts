@@ -63,7 +63,7 @@ export class RegistrationComponent implements OnInit {
           alert(res.message);
           console.log(res);
           localStorage.setItem('token', res.token);
-          this._router.navigate(['/home']).then(() => {
+          this._router.navigate(['/dashboard']).then(() => {
             window.location.reload();
           });
         }
