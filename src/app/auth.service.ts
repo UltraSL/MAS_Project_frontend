@@ -19,7 +19,12 @@ export class AuthService {
   loginUser(user: any) {
     return this.http.post<any>(this._loginUrl, user)
   }
+
+  addUser(user: any) {
+    return this.http.post<any>("http://localhost:8000/user/AddUser", user)
+  }
   sendEmail(email: any){
     return this.http.post<any>(this._forgetPasswordUrl, email)
   }
+
 }

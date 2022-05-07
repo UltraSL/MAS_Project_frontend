@@ -6,13 +6,16 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotificationComponent } from './notification/notification.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { RequestComponent } from './request/request.component';
+
 import { StatusrequestComponent } from './statusrequest/statusrequest.component';
 
 const routes: Routes = [
   { path :'', redirectTo : '/home' , pathMatch : 'full'},
   { path : 'home', component : HomeComponent},
   { path : 'login', component : LoginComponent},
+  { path : 'register', component : RegistrationComponent},
   { path : 'forgetpassword', component : ForgetPasswordComponent},
   { path : 'edit-profile', component : EditProfileComponent},
   { path : 'dashboard', component : DashboardComponent},
