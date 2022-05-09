@@ -5,4 +5,20 @@
       <app-dashboard></app-dashboard>
     </div>
     <div class="col-9">
-<p>statusrequest works!</p>
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Req Number</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let u of searchedRequests">
+            <th scope="row">{{u._id}}</th>
+            <td>{{u.status}}</td>
+            <td><button class="btn btn-danger">View Details</button></td>
+          </tr>
+        </tbody>
+      </table>
