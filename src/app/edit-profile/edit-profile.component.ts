@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -9,8 +10,9 @@ export class EditProfileComponent implements OnInit {
 
   userData : any = {}
   editedUserData : any = {}
+  selectedUserDetail : any = {}
 
-  constructor() { }
+  constructor(private auth : AuthService) { }
 
   ngOnInit(): void {
 
@@ -24,8 +26,27 @@ export class EditProfileComponent implements OnInit {
     this.editedUserData.department = this.userData.department;
     this.editedUserData.supervisorName = this.userData.supervisorName;
     this.editedUserData.mobile = this.userData.mobile;
+    this.editedUserData.image = this.userData.image;
 
+    console.log(this.userData._id)
+  }
 
+  updateUser(){
+
+    let updateUser = this.editedUserData;
+    updateUser._id = this.userData._id;
+
+    this.auth.updateUserDetails(updateUser)
+    .subscribe(
+      res=> {
+        updateUser.push=res;
+        this.selectedUserDetail=res;
+        window.alert("successfully edited")
+        console.log(res)
+
+      },
+      err => console.log(err)
+    )
   }
 
 }
