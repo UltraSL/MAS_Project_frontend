@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Login Page with Background Image Example</title>
-
-
-</head>
-
-<body>
+<!--
   <div class="card"></div>
   <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/042017/untitled-1_17.png?itok=BAFMQNCO"
-    id="icon" alt="User Icon" />
-  <!-- partial:index.partial.html -->
+    id="icon" alt="User Icon" />-->
+<!-- partial:index.partial.html
   <div id="bg"></div>
 
+ -->
 
-  <form [formGroup]="form" (ngSubmit)="submit()" style="width: 80%;">
-    <h3 style="margin-left: 150px;"><b style="color:rgb(85, 78, 78) ;">Registration</b></h3>
-    <h5 style="color:rgb(85, 78, 78) ;">Fill your details to get registrated to the system</h5>
-    <br>
-    <div class="form-group">
+
+<!--<form [formGroup]="form" (ngSubmit)="submit()" style="width: 80%;" class="row g-3">
+    <div class="col-md-12">
       
         <input 
             formControlName="empNumber"
@@ -36,18 +25,20 @@
 
 
 
-    <div class="form-row">
 
-      <div class="form-group col-md-6">
+
+    <div class="col-md-6">
         <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name">
         <div *ngIf="f['firstName'].touched && f['firstName'].invalid" class="alert alert-danger">
           <div *ngIf="f['firstName'].errors && f['firstName'].errors['required']">firstName is required.</div>
           <div *ngIf="f['firstName'].errors && f['firstName'].errors['minlength']">first Name should be 3 character.</div>
         </div>
-      </div>
+    
 
 
-      <div class="form-group col-md-6" style="margin-left:-200px">
+    
+   
+        <div class="col-md-6">
         <input formControlName="lastName" id="lastName" type="text" placeholder="Last Name" class="form-control">
         <div *ngIf="f['lastName'].touched && f['lastName'].invalid" class="alert alert-danger">
           <div *ngIf="f['lastName'].errors && f['lastName'].errors['required']">lastName is required.</div>
@@ -161,9 +152,156 @@
           class="login"><b style="color:blue;">Login</b></a></h5>
     </div>
 
-  </form>
+  </form>-->
 
 
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <!---<title> Responsive Registration Form | CodingLab </title>--->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Employee Number <b style="color:red">*</b></span>
+            <input formControlName="empNumber" id="empNumber" type="text" placeholder="Employee Number"
+              class="form-control" required>
+            <div *ngIf="f['empNumber'].touched && f['empNumber'].invalid" class="alert alert-danger">
+              <div *ngIf="f['empNumber'].errors && f['empNumber'].errors['required']">Employee Number is required.</div>
+
+            </div>
+          </div>
+          <div class="input-box">
+            <span class="details">Username <b style="color:red">*</b></span>
+            <input formControlName="username" id="username" type="text" placeholder="Username" class="form-control"
+              required>
+            <div *ngIf="f['username'].touched && f['username'].invalid" class="alert alert-danger">
+              <div *ngIf="f['username'].errors && f['username'].errors['required']">Username is required.</div>
+
+            </div>
+          </div>
+
+          <div class="input-box">
+            <span class="details">First Name <b style="color:red">*</b></span>
+            <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name">
+            <div *ngIf="f['firstName'].touched && f['firstName'].invalid" class="alert alert-danger">
+              <div *ngIf="f['firstName'].errors && f['firstName'].errors['required']">firstName is required.</div>
+              <div *ngIf="f['firstName'].errors && f['firstName'].errors['minlength']">first Name should be 3 character.
+              </div>
+            </div>
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name <b style="color:red">*</b></span>
+            <input formControlName="lastName" id="lastName" type="text" placeholder="Last Name" class="form-control">
+            <div *ngIf="f['lastName'].touched && f['lastName'].invalid" class="alert alert-danger">
+              <div *ngIf="f['lastName'].errors && f['lastName'].errors['required']">lastName is required.</div>
+              <div *ngIf="f['lastName'].errors && f['lastName'].errors['minlength']">lastName should be 3 character.
+              </div>
+            </div>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Email<b style="color:red">*</b></span>
+
+            <input formControlName="email" id="email" type="text" class="form-control" placeholder="email">
+            <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+              <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+              <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+            </div>
+          </div>
+          <div class="input-box">
+            <span class="details">Department<b style="color:red">*</b></span>
+            <input formControlName="department" id="department" type="text" placeholder="Department"
+              class="form-control">
+            <div *ngIf="f['department'].touched && f['department'].invalid" class="alert alert-danger">
+              <div *ngIf="f['department'].errors && f['department'].errors['required']">Department is required.</div>
+            </div>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Intermediate Supervisor Name <b style="color:red">*</b></span>
+            <input formControlName="supervisorName" id="supervisorName" type="text"
+              placeholder="Intermediate Supervisor Name" class="form-control">
+            <div *ngIf="f['supervisorName'].touched && f['supervisorName'].invalid" class="alert alert-danger">
+              <div *ngIf="f['supervisorName'].errors && f['supervisorName'].errors['required']">supervisor Name is
+                required.</div>
+              <div *ngIf="f['supervisorName'].errors && f['supervisorName'].errors['minlength']">supervisor Name should
+                be 10 character.</div>
+            </div>
+          </div>
+          <div class="input-box">
+            <span class="details">Position <b style="color:red">*</b></span>
+            <input formControlName="position" id="position" type="text" placeholder="Position" class="form-control">
+            <div *ngIf="f['position'].touched && f['position'].invalid" class="alert alert-danger">
+              <div *ngIf="f['position'].errors && f['position'].errors['required']">Position is required.</div>
+
+            </div>
+          </div>
+
+          <div class="input-box">
+            <span class="details">NIC Number<b style="color:red">*</b></span>
+            <input formControlName="NICNumber" id="NICNumber" type="text" placeholder="NICNumber" class="form-control">
+            <div *ngIf="f['NICNumber'].touched && f['NICNumber'].invalid" class="alert alert-danger">
+              <div *ngIf="f['NICNumber'].errors && f['NICNumber'].errors['required']">NICNumber is required.</div>
+              <div *ngIf="f['NICNumber'].errors && f['NICNumber'].errors['minlength']">NICNumber should be 10 character.
+              </div>
+            </div>
+
+          </div>
+          <div class="input-box">
+            <span class="details">Mobile Number <b style="color:red">*</b></span>
+            <input formControlName="mobile" id="mobile" type="text" placeholder="Mobile" class="form-control">
+            <div *ngIf="f['mobile'].touched && f['mobile'].invalid" class="alert alert-danger">
+              <div *ngIf="f['mobile'].errors && f['mobile'].errors['required']">Mobile number is required.</div>
+              <div *ngIf="f['mobile'].errors && f['mobile'].errors['minlength']">Mobile number should be 10 character.
+              </div>
+            </div>
+          </div>
+
+
+          <div class="input-box">
+            <span class="details">Password <b style="color:red">*</b></span>
+            <input formControlName="password" id="password" type="password" placeholder="password" class="form-control">
+            <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+              <div *ngIf="f['password'].errors && f['password'].errors['required']"> password required.</div>
+              <div *ngIf="f['password'].errors && f['password'].errors['minlength']">password should be 8 character.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+
+      <div>
+
+        <h5 style="color: rgb(8, 8, 8);text-align:justify;margin-left: 100px;"> Already you an account?<a
+            routerLink="/login" class="login"><b style="color:blue;">Login</b></a></h5>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 </body>
 
 </html>

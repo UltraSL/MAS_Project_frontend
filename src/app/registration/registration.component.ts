@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,10 +12,14 @@ import { Router } from '@angular/router';
 export class RegistrationComponent implements OnInit {
   submitted = false;
   constructor(private _auth: AuthService, private _router: Router) {}
-
+  
   ngOnInit() {}
   form = new FormGroup({
     empNumber: new FormControl('', [Validators.required]),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
     firstName: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
@@ -27,8 +32,10 @@ export class RegistrationComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(6),
+      Validators.minLength(8)
     ]),
+    
+  
     // confirmpassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
     mobile: new FormControl('', [
       Validators.required,
@@ -37,11 +44,17 @@ export class RegistrationComponent implements OnInit {
     NICNumber: new FormControl('', [Validators.required]),
     department: new FormControl('', [Validators.required]),
     supervisorName: new FormControl('', [Validators.required]),
-  });
+   
+
+  
+  },
+
+
+  );
   get f() {
     return this.form.controls;
   }
-
+ 
   submit() {
     console.log(this.form.value);
     this._auth.addUser(this.form.value).subscribe(
