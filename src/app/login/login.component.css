@@ -83,7 +83,7 @@ html {
   input[type=button], input[type=submit], input[type=reset]  {
     background-color: #eb2121;
     border: none;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 10px 70px;
     text-align: center;
     text-decoration: none;
@@ -116,7 +116,7 @@ html {
   }
   
   input[type=text] {
-    background-color: #f6f6f6;
+    background-color: #f06694;
     border: none;
     color: #0d0d0d;
     padding: 15px 32px;
@@ -137,12 +137,12 @@ html {
   }
   
   input[type=text]:focus {
-    background-color: #fff;
+    background-color: rgb(233, 106, 176);
     border-bottom: 2px solid #5fbae9;
   }
   
   input[type=text]:placeholder {
-    color: #cccccc;
+    color: #f75aba;
   }
 
   input[type=password] {

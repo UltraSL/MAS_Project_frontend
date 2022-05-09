@@ -16,7 +16,7 @@ export class EditProfileComponent implements OnInit {
 
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
     console.log(this.userData.firstName +" user ")
-
+/*
     this.editedUserData.firstName = this.userData.firstName;
     this.editedUserData.lastName = this.userData.lastName;
     this.editedUserData.email = this.userData.email;
@@ -24,7 +24,7 @@ export class EditProfileComponent implements OnInit {
     this.editedUserData.department = this.userData.department;
     this.editedUserData.supervisorName = this.userData.supervisorName;
     this.editedUserData.mobile = this.userData.mobile;
-
+*/
 
   }
 
