@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from 'src/services/request.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-statusrequest',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusrequestComponent implements OnInit {
 
-  constructor() { }
+  userData : any = {}
+  searchedRequests : any = {}
+  constructor( private request : RequestService, private _auth : AuthService) { }
 
   ngOnInit(): void {
+
+    this.userData = JSON.parse(localStorage.getItem('user') || '{}');
+
+    this.request.getRequestsById(this.userData._id).subscribe((res: any)=> {
+      this.searchedRequests=res,
+      console.log(res)
+    })
   }
+
+  getRequestsById(){
+
+      this.request.getRequestsById(this.userData._id).subscribe((res: any)=> {
+        this.searchedRequests=res,
+        console.log(res)
+      })
+   
+  }
+
+
 
 }

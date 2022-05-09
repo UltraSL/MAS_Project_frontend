@@ -10,6 +10,8 @@ const httpOptions = {
 })
 export class AuthService {
 
+  userData : any = {}
+
   private _loginUrl ="http://localhost:8000/user/Login";
   private _forgetPasswordUrl ="http://localhost:8000/user/forgotpassword";
   private _putUrl ="http://localhost:8000/user/EditUser/";
@@ -26,6 +28,33 @@ export class AuthService {
   }
   sendEmail(email: any){
     return this.http.post<any>(this._forgetPasswordUrl, email)
+  }
+
+  empLoggedIn(){
+
+    this.userData = JSON.parse(localStorage.getItem('user') || '{}');
+    if(this.userData.position=="employee"){
+      return true;
+    }
+    return false;
+  }
+
+  mngLoggedIn(){
+
+    this.userData = JSON.parse(localStorage.getItem('user') || '{}');
+    if(this.userData.position=="manager"){
+      return true;
+    }
+    return false;
+  }
+
+  TransportMngLoggedIn(){
+
+    this.userData = JSON.parse(localStorage.getItem('user') || '{}');
+    if(this.userData.position=="transporter"){
+      return true;
+    }
+    return false;
   }
 
 

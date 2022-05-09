@@ -10,13 +10,16 @@ import { RequestService } from 'src/services/request.service';
 export class RequestComponent implements OnInit {
 
   empRequest : any = {}
+  userData : any = {}
 
   constructor( private _request : RequestService , private _router : Router) { }
 
   ngOnInit(): void {
+    this.userData = JSON.parse(localStorage.getItem('user') || '{}');
   }
 
   sendRequest(){
+    this.empRequest.user_id= this.userData._id;
     this._request.sendRequest(this.empRequest)
     .subscribe({
       complete: () => { window.alert("Success"), this._router.navigate(['/statusrequest']) }, // completeHandler
