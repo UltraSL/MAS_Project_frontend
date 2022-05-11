@@ -3,22 +3,21 @@ import { RequestService } from 'src/services/request.service';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-statusrequest',
-  templateUrl: './statusrequest.component.html',
-  styleUrls: ['./statusrequest.component.css']
+  selector: 'app-view-request',
+  templateUrl: './view-request.component.html',
+  styleUrls: ['./view-request.component.css']
 })
-export class StatusrequestComponent implements OnInit {
+export class ViewRequestComponent implements OnInit {
 
   userData : any = {}
   searchedRequests : any = {}
   clickedRequestId : any = {}
-  constructor( private request : RequestService, private _auth : AuthService) { }
+
+  constructor( private request : RequestService, public _auth : AuthService) { }
 
   ngOnInit(): void {
 
-    this.userData = JSON.parse(localStorage.getItem('user') || '{}');
-
-    this.request.getRequestsById(this.userData._id).subscribe((res: any)=> {
+    this.request.getAllrequests().subscribe((res: any)=> {
       this.searchedRequests=res,
       console.log(res)
     })
@@ -29,7 +28,5 @@ export class StatusrequestComponent implements OnInit {
     localStorage.setItem('clickedRequestId', this.clickedRequestId);
     console.log(this.clickedRequestId+" id of Request");
   }
-
-
 
 }

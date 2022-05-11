@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -12,12 +13,12 @@ export class EditProfileComponent implements OnInit {
   editedUserData : any = {}
   selectedUserDetail : any = {}
 
-  constructor(private auth : AuthService) { }
+  constructor(private auth : AuthService , private _router : Router) { }
 
   ngOnInit(): void {
 
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
-    console.log(this.userData.firstName +" user ")
+    console.log(this.userData +" user ")
 
     this.editedUserData.firstName = this.userData.firstName;
     this.editedUserData.lastName = this.userData.lastName;
@@ -28,7 +29,7 @@ export class EditProfileComponent implements OnInit {
     this.editedUserData.mobile = this.userData.mobile;
     this.editedUserData.image = this.userData.image;
 
-    console.log(this.userData._id)
+    console.log(this.userData.username)
   }
 
   updateUser(){
@@ -41,7 +42,8 @@ export class EditProfileComponent implements OnInit {
       res=> {
         updateUser.push=res;
         this.selectedUserDetail=res;
-        window.alert("successfully edited")
+        window.alert("successfully edited");
+        this._router.navigate(['/login']);
         console.log(res)
 
       },

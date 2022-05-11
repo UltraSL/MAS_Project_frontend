@@ -12,6 +12,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { RequestComponent } from './request/request.component';
 
 import { StatusrequestComponent } from './statusrequest/statusrequest.component';
+import { TransporterViewRequestsComponent } from './transporter-view-requests/transporter-view-requests.component';
+import { ViewRequestDetailsComponent } from './view-request-details/view-request-details.component';
+import { ViewRequestComponent } from './view-request/view-request.component';
 
 const routes: Routes = [
   { path :'', redirectTo : '/home' , pathMatch : 'full'},
@@ -23,6 +26,9 @@ const routes: Routes = [
   { path : 'dashboard', component : DashboardComponent},
   { path : 'request', component : RequestComponent},
   { path : 'statusrequest', component : StatusrequestComponent},
+  { path : 'view-all-request', component : ViewRequestComponent},
+  { path : 'view-all-request-transporter', component : TransporterViewRequestsComponent},
+  { path : 'view-request-details', component : ViewRequestDetailsComponent},
   { path : 'notification', component : NotificationComponent },
 
 ];

@@ -16,6 +16,9 @@ import { RequestComponent } from './request/request.component';
 import { StatusrequestComponent } from './statusrequest/statusrequest.component';
 
 import { RegistrationComponent } from './registration/registration.component';
+import { ViewRequestComponent } from './view-request/view-request.component';
+import { ViewRequestDetailsComponent } from './view-request-details/view-request-details.component';
+import { TransporterViewRequestsComponent } from './transporter-view-requests/transporter-view-requests.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { RegistrationComponent } from './registration/registration.component';
     RequestComponent,
     StatusrequestComponent,
  
-    RegistrationComponent
+    RegistrationComponent,
+       ViewRequestComponent,
+       ViewRequestDetailsComponent,
+       TransporterViewRequestsComponent
   ],
   imports: [
     BrowserModule,
