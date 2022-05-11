@@ -16,9 +16,8 @@ export class EditProfileComponent implements OnInit {
   imageData: any;
   loading = false;
   typeSelected: any;
-  constructor(private auth: AuthService, private _router : Router) {
 
-    }
+  constructor(private auth : AuthService , private _router : Router) { }
 
 
   ngOnInit(): void {
@@ -75,11 +74,21 @@ export class EditProfileComponent implements OnInit {
     }
   }
 
+ 
+
   uploadImage() {
+
       this.auth.uploadImage(this.userData._id, this.form.value.image)
     this.form.reset();
     this.imageData = null;
     window.alert('successfully uploaded');
+    
+  
+    
   }
 
+
+  
+
 }
+
