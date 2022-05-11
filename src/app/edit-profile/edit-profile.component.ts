@@ -82,6 +82,7 @@ export class EditProfileComponent implements OnInit {
     this.form.reset();
     this.imageData = null;
     window.alert('successfully uploaded');
+    window.location.reload();
     
   
     

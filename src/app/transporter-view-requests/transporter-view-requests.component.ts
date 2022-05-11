@@ -15,7 +15,7 @@ export class TransporterViewRequestsComponent implements OnInit {
   constructor( private request : RequestService, public _auth : AuthService) { }
 
   ngOnInit(): void {
-    this.request.getAllrequests().subscribe((res: any)=> {
+    this.request.getRequestsByStatus("approved").subscribe((res: any)=> {
       this.searchedRequests=res,
       console.log(res)
     })
