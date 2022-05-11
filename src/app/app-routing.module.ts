@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ManagerGuard } from './guards/manager.guard';
+import { TransportManagerGuard } from './guards/transport-manager.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotificationComponent } from './notification/notification.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path : 'view-all-request-transporter', component : TransporterViewRequestsComponent},
   { path : 'view-request-details', component : ViewRequestDetailsComponent},
   { path : 'notification', component : NotificationComponent },
+  { path : 'transport-view-requests', component : TransporterViewRequestsComponent, canActivate : [TransportManagerGuard] },
 
 ];
 

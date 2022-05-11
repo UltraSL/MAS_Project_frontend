@@ -12,10 +12,8 @@
             <th scope="col">Req Number</th>
             <th scope="col">Status</th>
             <th scope="col">Action</th>
-            <div *ngIf="_auth.TransportMngLoggedIn()">
             <th scope="col">Driver</th>
             <th scope="col">Vehicle</th>
-          </div>
           </tr>
         </thead>
         <tbody>
@@ -23,7 +21,6 @@
             <th scope="row">{{u._id}}</th>
             <td>{{u.status}}</td>
             <td><button class="btn btn-danger" routerLink="/view-request-details" (click)="getId(u._id)">Click to View</button></td>
-            <div *ngIf="_auth.TransportMngLoggedIn()">
             <td scope="row">
               <select name="Kategori" id="Kategori" class="ms-1 d-block w-100" required>
                 <option>Click Here</option>
@@ -40,7 +37,7 @@
                 <option value="vehicle3">vehicle3</option>
             </select>
             </td>
-          </div>
+
           </tr>
         </tbody>
       </table>

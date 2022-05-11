@@ -7,8 +7,15 @@
 
     </header>
     <ul class="nav">
-      <li *ngIf="!_auth.empLoggedIn()">
+      <li *ngIf="_auth.mngLoggedIn()">
         <a routerLink="/view-all-request">
+          <i class="zmdi zmdi-view-dashboard"></i> View request
+        </a>
+        <br>
+      <br>
+      </li>
+      <li *ngIf="_auth.TransportMngLoggedIn()">
+        <a routerLink="/transport-view-requests">
           <i class="zmdi zmdi-view-dashboard"></i> View request
         </a>
         <br>
@@ -34,10 +41,27 @@
         <a routerLink="/notification">
           <i class="zmdi zmdi-calendar"></i> Notifications
         </a>
+        <br>
+        <br>
       </li>
 
-      <br>
-      <br>
+      <li>
+        <a routerLink="/notification" *ngIf="_auth.TransportMngLoggedIn()">
+          <i class="zmdi zmdi-calendar"></i> View Vehicles
+        </a>
+        <br>
+        <br>
+      </li>
+
+      <li>
+        <a routerLink="/notification" *ngIf="_auth.TransportMngLoggedIn()">
+          <i class="zmdi zmdi-calendar"></i> View Drivers
+        </a>
+        <br>
+        <br>
+      </li>
+
+
       <li>
         <a routerLink="/edit-profile">
           <i class="zmdi zmdi-settings"></i>Update profile

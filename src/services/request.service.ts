@@ -9,6 +9,7 @@ export class RequestService {
 
   private _sendRequestUrl ="http://localhost:8000/request/sendRequest";
   private _getRequestByUserId ="http://localhost:8000/request/getAllRequestsByUserId/";
+  private _getRequestsByStatus ="http://localhost:8000/request/getAllRequestsByStatus/";
   private _getRequestById ="http://localhost:8000/request/getRequestById/";
   private _getAllRequests ="http://localhost:8000/request/getAllRequests";
   private _approveRejectRequestById ="http://localhost:8000/request/approveRejectRequestById/";
@@ -21,6 +22,10 @@ export class RequestService {
 
   getRequestsById(id :any){
     return this.http.get<any>(`${this._getRequestByUserId}${id}`)
+  }
+
+  getRequestsByStatus(status :any){
+    return this.http.get<any>(`${this._getRequestsByStatus}${status}`)
   }
 
   getAllrequests(){
