@@ -13,7 +13,7 @@
                       <img width="200px" height="250px" class="img-account-profile rounded-circle mb-3" [src]="userImage.data.image" alt="">
                       <input   (change)="onFileSelect($event)" formControlName="image" type="file" accept="image/gif, image/jpeg,image/png" required />
                       <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                      <button  class="spinner-border text-primary" role="status" type="button" (click)="uploadImage()" ></button>
+                      <button  class="btn btn-success" type="button" (click)="uploadImage()">Upload</button>
                    
                   </div>
               </div>

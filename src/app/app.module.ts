@@ -22,8 +22,6 @@ import { ViewRequestDetailsComponent } from './view-request-details/view-request
 import { TransporterViewRequestsComponent } from './transporter-view-requests/transporter-view-requests.component';
 
 
-import { NgxSpinnerModule } from "ngx-spinner";
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +44,6 @@ import { NgxSpinnerModule } from "ngx-spinner";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxSpinnerModule,
     ReactiveFormsModule,
     HttpClientModule
   ],

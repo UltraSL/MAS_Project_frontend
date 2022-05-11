@@ -80,7 +80,7 @@ export class AuthService {
 
     profileData.append('image', image);
     this.http
-      .put<{ profile: UserProfile }>('http://localhost:8000/user/EditUser/'+id ,profileData)
+      .put<{ profile: UserProfile }>('http://localhost:8000/user/EditUserImage/'+id ,profileData)
       .subscribe((profileData) => {
         const profile: UserProfile = {
           image: profileData.profile.image,
