@@ -10,9 +10,11 @@
               <div class="card mb-4 mb-xl-0">
                   <div class="card-header">Profile Picture</div>
                   <div class="card-body text-center">
-                      <img class="img-account-profile rounded-circle mb-2" src="https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png" alt="">
-                      <input [(ngModel)]="editedUserData.image" id="inputFirstName" type="text" placeholder="{{userData.image}}" [ngModelOptions]="{standalone: true}" class="editInputs" type="file" accept="image/gif, image/jpeg,image/png" required />
+                      <img width="200px" height="250px" class="img-account-profile rounded-circle mb-3" [src]="userImage.data.image" alt="">
+                      <input   (change)="onFileSelect($event)" formControlName="image" type="file" accept="image/gif, image/jpeg,image/png" required />
                       <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                      <button  class="spinner-border text-primary" role="status" type="button" (click)="uploadImage()" ></button>
+                   
                   </div>
               </div>
           </div>
