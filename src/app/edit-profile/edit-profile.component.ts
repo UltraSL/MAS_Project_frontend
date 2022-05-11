@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-edit-profile',
@@ -17,19 +16,8 @@ export class EditProfileComponent implements OnInit {
   imageData: any;
   loading = false;
   typeSelected: any;
-  constructor(private auth: AuthService,
-    private spinner: NgxSpinnerService
-   
-    ) {
+  constructor(private auth: AuthService, private _router : Router) {
 
-
-  userData : any = {}
-  editedUserData : any = {}
-  selectedUserDetail : any = {}
-
-  constructor(private auth : AuthService , private _router : Router) { }
-
-      this.typeSelected = 'ball-fussion';
     }
 
 
@@ -87,24 +75,11 @@ export class EditProfileComponent implements OnInit {
     }
   }
 
- 
-
   uploadImage() {
-    this.spinner.show();
       this.auth.uploadImage(this.userData._id, this.form.value.image)
     this.form.reset();
     this.imageData = null;
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 5000);
     window.alert('successfully uploaded');
-    
-  
-    
   }
-
-
-  
 
 }
