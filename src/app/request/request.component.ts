@@ -20,6 +20,7 @@ export class RequestComponent implements OnInit {
 
   sendRequest(){
     this.empRequest.user_id= this.userData._id;
+    this.empRequest.username= this.userData.username;
     this._request.sendRequest(this.empRequest)
     .subscribe({
       complete: () => { window.alert("Success"), this._router.navigate(['/statusrequest']) }, // completeHandler

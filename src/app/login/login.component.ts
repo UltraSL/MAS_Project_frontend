@@ -22,9 +22,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('user', JSON.stringify(res.data));
           localStorage.setItem('position', JSON.stringify(res.data.position));
           localStorage.setItem('password', this.loginUserData.password);
-          this._router.navigate(['/dashboard']).then(() => {
-            window.location.reload();
-          });
+          this._router.navigate(['/dashboard'])
         }
 
         if (res.code == 200 && res.success == false) {

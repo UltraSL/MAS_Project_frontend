@@ -7,14 +7,22 @@
 
     </header>
     <ul class="nav">
-      <li>
+      <li *ngIf="!_auth.empLoggedIn()">
+        <a routerLink="/view-all-request">
+          <i class="zmdi zmdi-view-dashboard"></i> View request
+        </a>
+        <br>
+      <br>
+      </li>
+      
+      <li *ngIf="_auth.empLoggedIn()">
         <a routerLink="/request">
           <i class="zmdi zmdi-view-dashboard"></i> Add request
         </a>
+      <br><br>
       </li>
-      <br>
-      <br>
-      <li>
+      
+      <li *ngIf="_auth.empLoggedIn()">
         <a routerLink="/statusrequest">
           <i class="zmdi zmdi-link"></i> Status of request
         </a>

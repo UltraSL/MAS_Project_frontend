@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgxSpinnerService } from "ngx-spinner";
@@ -21,12 +22,19 @@ export class EditProfileComponent implements OnInit {
    
     ) {
 
+
+  userData : any = {}
+  editedUserData : any = {}
+  selectedUserDetail : any = {}
+
+  constructor(private auth : AuthService , private _router : Router) { }
+
       this.typeSelected = 'ball-fussion';
     }
 
+
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
-    console.log(this.userData.firstName + ' user ');
 
     this.editedUserData.firstName = this.userData.firstName;
     this.editedUserData.lastName = this.userData.lastName;
@@ -37,7 +45,6 @@ export class EditProfileComponent implements OnInit {
     this.editedUserData.mobile = this.userData.mobile;
     this.editedUserData.image = this.userData.image;
 
-    console.log(this.userData._id);
 
     this.auth.getUserImageById(this.userData._id).subscribe((res: any)=> {
       this.userImage=res,
@@ -52,12 +59,15 @@ export class EditProfileComponent implements OnInit {
     let updateUser = this.editedUserData;
     updateUser._id = this.userData._id;
 
-    this.auth.updateUserDetails(updateUser).subscribe(
-      (res) => {
-        updateUser.push = res;
-        this.selectedUserDetail = res;
-        window.alert('successfully edited');
-        console.log(res);
+
+    this.auth.updateUserDetails(updateUser)
+    .subscribe(
+      res=> {
+        updateUser.push=res;
+        this.selectedUserDetail=res;
+        window.alert("successfully edited");
+        this._router.navigate(['/login']);
+        console.log(res)
       },
       (err) => console.log(err)
     );

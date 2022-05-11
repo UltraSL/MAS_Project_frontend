@@ -18,7 +18,7 @@
           <tr *ngFor="let u of searchedRequests">
             <th scope="row">{{u._id}}</th>
             <td>{{u.status}}</td>
-            <td><button class="btn btn-danger">View Details</button></td>
+            <td><button class="btn btn-danger" routerLink="/view-request-details" (click)="getId(u._id)">View Details</button></td>
           </tr>
         </tbody>
       </table>
