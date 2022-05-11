@@ -16,7 +16,7 @@ import { RequestComponent } from './request/request.component';
 import { StatusrequestComponent } from './statusrequest/statusrequest.component';
 
 import { RegistrationComponent } from './registration/registration.component';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +36,7 @@ import { RegistrationComponent } from './registration/registration.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-
+    NgxSpinnerModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
