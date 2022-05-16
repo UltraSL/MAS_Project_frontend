@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DriverListComponent } from './driver-list/driver-list.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ManagerGuard } from './guards/manager.guard';
@@ -14,6 +15,7 @@ import { RequestComponent } from './request/request.component';
 
 import { StatusrequestComponent } from './statusrequest/statusrequest.component';
 import { TransporterViewRequestsComponent } from './transporter-view-requests/transporter-view-requests.component';
+import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { ViewRequestDetailsComponent } from './view-request-details/view-request-details.component';
 import { ViewRequestComponent } from './view-request/view-request.component';
 
@@ -32,6 +34,8 @@ const routes: Routes = [
   { path : 'view-request-details', component : ViewRequestDetailsComponent},
   { path : 'notification', component : NotificationComponent },
   { path : 'transport-view-requests', component : TransporterViewRequestsComponent, canActivate : [TransportManagerGuard] },
+  { path : 'vehicle-list', component : VehicleListComponent, canActivate : [TransportManagerGuard] },
+  { path : 'drivers-list', component : DriverListComponent, canActivate : [TransportManagerGuard] },
 
 ];
 
