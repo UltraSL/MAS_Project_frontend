@@ -20,6 +20,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ViewRequestComponent } from './view-request/view-request.component';
 import { ViewRequestDetailsComponent } from './view-request-details/view-request-details.component';
 import { TransporterViewRequestsComponent } from './transporter-view-requests/transporter-view-requests.component';
+import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
+import { DriverListComponent } from './driver-list/driver-list.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { TransporterViewRequestsComponent } from './transporter-view-requests/tr
     RegistrationComponent,
        ViewRequestComponent,
        ViewRequestDetailsComponent,
-       TransporterViewRequestsComponent
+       TransporterViewRequestsComponent,
+       VehicleListComponent,
+       DriverListComponent
   ],
   imports: [
     BrowserModule,
