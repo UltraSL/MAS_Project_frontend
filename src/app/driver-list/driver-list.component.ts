@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DriverService } from 'src/services/driver.service';
 
 @Component({
   selector: 'app-driver-list',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriverListComponent implements OnInit {
 
-  constructor() { }
+  driverList : any = {}
+
+  constructor(private _driver : DriverService) { }
 
   ngOnInit(): void {
+
+    this._driver.getAlldrivers().subscribe((res: any)=> {
+      this.driverList=res,
+      console.log(res)
+    })
+
   }
 
 }
