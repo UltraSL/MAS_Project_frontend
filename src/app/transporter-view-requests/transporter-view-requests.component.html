@@ -24,17 +24,13 @@
             <td scope="row">
               <select name="Kategori" id="Kategori" class="ms-1 d-block w-100" required>
                 <option>Click Here</option>
-                <option value="driver1">driver1</option>
-                <option value="driver2">driver2</option>
-                <option value="driver3">driver3</option>
+                <option *ngFor="let i of driverList" value="{{i.name}}">{{i.name}}</option>
             </select>
             </td>
             <td>
               <select name="Kategori" id="Kategori" class="ms-1 d-block w-100" required>
                 <option>Click Here</option>
-                <option value="vehicle1">vehicle1</option>
-                <option value="vehicle2">vehicle2</option>
-                <option value="vehicle3">vehicle3</option>
+                <option *ngFor="let j of vehicleList" value="{{j.number}}">{{j.type}} ({{j.number}})</option>
             </select>
             </td>
 
