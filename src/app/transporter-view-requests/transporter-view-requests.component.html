@@ -14,6 +14,7 @@
             <th scope="col">Action</th>
             <th scope="col">Driver</th>
             <th scope="col">Vehicle</th>
+            <th scope="col">Assign</th>
           </tr>
         </thead>
         <tbody>
@@ -24,16 +25,24 @@
             <td scope="row">
               <select name="Kategori" id="Kategori" class="ms-1 d-block w-100" required>
                 <option>Click Here</option>
-                <option *ngFor="let i of driverList" value="{{i.name}}">{{i.name}}</option>
+                <ng-container *ngFor="let i of driverList">
+                <ng-container *ngFor="let workingday of driverList.WorkingDates">
+                  <option *ngIf="workingday!=u.dateOfTrip" value="{{i.name}}">{{i.name}}</option>
+              </ng-container>
+              </ng-container>
             </select>
             </td>
             <td>
               <select name="Kategori" id="Kategori" class="ms-1 d-block w-100" required>
                 <option>Click Here</option>
-                <option *ngFor="let j of vehicleList" value="{{j.number}}">{{j.type}} ({{j.number}})</option>
+                <option *ngFor="let j of vehicleList" value="{{j.number}}">{{j.type}} ({{j.number}}) 
+                  <div class="online-indicator">
+                    <span class="blink"></span>
+                  </div>
+              </option>
             </select>
             </td>
-
+            <td><button class="btn btn-success">Confirm</button></td>
           </tr>
         </tbody>
       </table>

@@ -22,7 +22,7 @@
       <br>
       </li>
       
-      <li *ngIf="_auth.empLoggedIn()">
+      <li *ngIf="!_auth.TransportMngLoggedIn()">
         <a routerLink="/request">
           <i class="zmdi zmdi-view-dashboard"></i> Add request
         </a>

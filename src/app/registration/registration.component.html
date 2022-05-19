@@ -227,17 +227,25 @@
           </div>
           <div class="input-box">
             <span class="details">Department<b style="color:red">*</b></span>
-            <input formControlName="department" id="department" type="text" placeholder="Department"
-              class="form-control">
+            <!-- <input formControlName="department" id="department" type="text" placeholder="Department"
+              class="form-control"> -->
+              <select [ngModel]="department" (ngModelChange)="modelChangeFn($event)"  class="form-control" formControlName="department" id="department" class="ms-1 d-block w-100" required [(ngModel)]="department">
+                <option></option>
+                  <option value="IT">IT</option>
+                  <option value="Financial">Financial</option>
+                  <option value="Accounting">Accounting</option>
+                  <option value="Transportation">Transportation</option>
+
+            </select>
             <div *ngIf="f['department'].touched && f['department'].invalid" class="alert alert-danger">
               <div *ngIf="f['department'].errors && f['department'].errors['required']">Department is required.</div>
             </div>
           </div>
 
           <div class="input-box">
-            <span class="details">Intermediate Supervisor Name <b style="color:red">*</b></span>
+            <span class="details">Immediate Supervisor Name <b style="color:red">*</b></span>
             <input formControlName="supervisorName" id="supervisorName" type="text"
-              placeholder="Intermediate Supervisor Name" class="form-control">
+              placeholder="Immediate Supervisor Name" class="form-control">
             <div *ngIf="f['supervisorName'].touched && f['supervisorName'].invalid" class="alert alert-danger">
               <div *ngIf="f['supervisorName'].errors && f['supervisorName'].errors['required']">supervisor Name is
                 required.</div>

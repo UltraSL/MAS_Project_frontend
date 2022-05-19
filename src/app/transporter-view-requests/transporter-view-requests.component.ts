@@ -34,13 +34,16 @@ export class TransporterViewRequestsComponent implements OnInit {
       this.vehicleList=res,
       console.log(res)
     })
-
   }
 
   getId(id : any){
     this.clickedRequestId = id;
     localStorage.setItem('clickedRequestId', this.clickedRequestId);
     console.log(this.clickedRequestId+" id of Request");
+  }
+
+  assign(id:any, date : any, driverName:any, vehicleNumber:any){
+    
   }
 
 }
