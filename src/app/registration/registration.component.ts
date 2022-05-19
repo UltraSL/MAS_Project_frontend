@@ -11,9 +11,25 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
   submitted = false;
+  managerList : any = {}
+  department : any = {}
   constructor(private _auth: AuthService, private _router: Router) {}
   
-  ngOnInit() {}
+  ngOnInit() {
+
+    this._auth.getMngByDept(this.department).subscribe((res: any)=> {
+      this.managerList=res,
+      console.log(res)
+    })
+
+    console.log("depat : "+this.department)
+
+  }
+
+  modelChangeFn(department: any) {
+    this.department = department;
+  }
+
   form = new FormGroup({
     empNumber: new FormControl('', [Validators.required]),
     username: new FormControl('', [

@@ -4,19 +4,22 @@
     </div>
     <div class="col-9" style="margin-left: 250px;">
 
-      <div class="card" style="width: 18rem;" *ngFor="let u of driverList">
+      <div class="card" style="width: 18rem; margin:10px;" *ngFor="let u of driverList">
         <div class="card-body">
-          <h5 class="card-title">{{u.name}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{u.mobile}}</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <link href="https://fonts.googleapis.com/css?family=Rubik:400,500" rel="stylesheet">
-
-          <div class="container" *ngIf="u.availablity">
+          <h4 class="card-title">{{u.name}}</h4>
+          <p class="card-text">Working Days</p>
+          <div class="list-group">
+            <a *ngFor="let dates of u.WorkingDates" class="list-group-item list-group-item-action list-group-item-primary">{{dates}}</a>
+          </div>
+          <!-- <link href="https://fonts.googleapis.com/css?family=Rubik:400,500" rel="stylesheet"> -->
+          <!-- <div class="container" *ngIf="u.availablity">
             <div class="online-indicator">
               <span class="blink"></span>
             </div>
             <p class="online-text">Available</p>
-          </div>
+          </div> -->
+          <br>
+          <h6 class="card-subtitle mb-2 text-muted">Phone Number: {{u.mobile}}</h6>
         
         </div>
       </div>

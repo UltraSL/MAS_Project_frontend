@@ -5,27 +5,15 @@
   <div class="col-9" style="margin-left: 250px;">
 
 <div class="card-group">
-  <div class="card">
+  <div class="card" *ngFor="let v of vehicleList">
     <img src="https://cdn.motor1.com/images/mgl/X1ko9/s1/press-kit-22-fotos-y-mas-datos-de-la-nueva-ford-ecosport.jpg" class="card-img-top" alt="img">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="https://image.shutterstock.com/image-photo/dubai-uae-november-16-2018-260nw-1263043045.jpg" class="card-img-top" alt="img">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="https://cdn.motor1.com/images/mgl/X1ko9/s1/press-kit-22-fotos-y-mas-datos-de-la-nueva-ford-ecosport.jpg" class="card-img-top" alt="img">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+    <div class="card-body" >
+      <h4 class="card-title">{{v.type}}</h4>
+      <h5 class="card-title">{{v.number}}</h5>
+      <p class="card-text"> Dates Reserved:</p>
+      <div class="list-group">
+        <a *ngFor="let dates of v.reservedDates" class="list-group-item list-group-item-action list-group-item-primary">{{dates}}</a>
+      </div>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
   </div>

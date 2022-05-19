@@ -17,6 +17,7 @@ export class AuthService {
   private _forgetPasswordUrl = 'http://localhost:8000/user/forgotpassword';
   private _putUrl = 'http://localhost:8000/user/EditUser/';
   private _getImage = 'http://localhost:8000/user/profile/';
+  private _getMngByDept = 'http://localhost:8000/user/getMngByDepart/';
   private profiles: UserProfile[] = [];
   private profiles$ = new Subject<UserProfile[]>();
 
@@ -47,6 +48,10 @@ export class AuthService {
       return true;
     }
     return false;
+  }
+
+  getMngByDept(department : any){
+    return this.http.get<any>(`${this.getMngByDept}${department}`)
   }
 
   TransportMngLoggedIn() {
