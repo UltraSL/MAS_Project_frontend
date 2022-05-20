@@ -51,7 +51,7 @@ export class AuthService {
   }
 
   getMngByDept(department : any){
-    return this.http.get<any>(`${this.getMngByDept}${department}`)
+    return this.http.get<any>(`${this._getMngByDept}${department}`)
   }
 
   TransportMngLoggedIn() {

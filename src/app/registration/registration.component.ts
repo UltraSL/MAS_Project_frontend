@@ -15,19 +15,28 @@ export class RegistrationComponent implements OnInit {
   department : any = {}
   constructor(private _auth: AuthService, private _router: Router) {}
   
-  ngOnInit() {
 
-    this._auth.getMngByDept(this.department).subscribe((res: any)=> {
-      this.managerList=res,
-      console.log(res)
-    })
 
-    console.log("depat : "+this.department)
+  onOptionsSelected(value: any) {
+ 
+   console.log("value",value);
+    this.department = value;
+    console.log("de",this.department);
+
+   this._auth.getMngByDept(this.department).subscribe((res: any)=> {
+    this.managerList=res,
+
+    console.log(res)
+  
+
+  })
 
   }
 
-  modelChangeFn(department: any) {
-    this.department = department;
+  ngOnInit() {
+    
+  
+
   }
 
   form = new FormGroup({
