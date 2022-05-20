@@ -229,7 +229,8 @@
             <span class="details">Department<b style="color:red">*</b></span>
             <!-- <input formControlName="department" id="department" type="text" placeholder="Department"
               class="form-control"> -->
-              <select [ngModel]="department" (ngModelChange)="modelChangeFn($event)"  class="form-control" formControlName="department" id="department" class="ms-1 d-block w-100" required [(ngModel)]="department">
+              <select [ngModel]="department"  #mySelect
+              (change)='onOptionsSelected(mySelect.value)' class="form-control" formControlName="department" id="department" class="ms-1 d-block w-100" required [(ngModel)]="department">
                 <option></option>
                   <option value="IT">IT</option>
                   <option value="Financial">Financial</option>
@@ -244,8 +245,16 @@
 
           <div class="input-box">
             <span class="details">Immediate Supervisor Name <b style="color:red">*</b></span>
-            <input formControlName="supervisorName" id="supervisorName" type="text"
+          <!--  <input formControlName="supervisorName" id="supervisorName" type="text"
               placeholder="Immediate Supervisor Name" class="form-control">
+-->
+<select formControlName="supervisorName" id="supervisorName"  >
+  <option value="">Select Supervisor</option>
+              <option class='option'  *ngFor='let option of managerList' 
+              [value]="option.firstName">{{option.firstName}}</option>
+
+            </select> 
+
             <div *ngIf="f['supervisorName'].touched && f['supervisorName'].invalid" class="alert alert-danger">
               <div *ngIf="f['supervisorName'].errors && f['supervisorName'].errors['required']">supervisor Name is
                 required.</div>
