@@ -18,7 +18,7 @@ export class ViewRequestComponent implements OnInit {
   ngOnInit(): void {
 
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
-
+    
     this.request.getRequestByBySupervisor(this.userData.username).subscribe((res: any)=> {
       this.searchedRequests=res,
       console.log(res)

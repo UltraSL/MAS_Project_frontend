@@ -21,6 +21,13 @@
         <br>
       <br>
       </li>
+      <li *ngIf="_auth.DriverLoggedIn()">
+        <a routerLink="/driver-view-requests">
+          <i class="zmdi zmdi-view-dashboard"></i> View request
+        </a>
+        <br>
+      <br>
+      </li>
       
       <li *ngIf="!_auth.TransportMngLoggedIn()">
         <a routerLink="/request">

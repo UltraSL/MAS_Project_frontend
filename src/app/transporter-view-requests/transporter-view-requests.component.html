@@ -19,30 +19,21 @@
         </thead>
         <tbody>
           <tr *ngFor="let u of searchedRequests">
-            <th scope="row">{{u._id}}</th>
+            <th scope="row" [(ngModel)]="reqId" ng-value="reqId=u._id">{{u._id}}</th>
             <td>{{u.status}}</td>
             <td><button class="btn btn-danger" routerLink="/view-request-details" (click)="getId(u._id)">Click to View</button></td>
             <td scope="row">
-              <select name="Kategori" id="Kategori" class="ms-1 d-block w-100" required>
-                <option>Click Here</option>
-                <ng-container *ngFor="let i of driverList">
-                <ng-container *ngFor="let workingday of driverList.WorkingDates">
-                  <option *ngIf="workingday!=u.dateOfTrip" value="{{i.name}}">{{i.name}}</option>
-              </ng-container>
-              </ng-container>
-            </select>
+              <select name="Kategori" id="Kategori" [(ngModel)]="driver" class="ms-1 d-block w-100" required>
+                  <option *ngFor="let i of driverList" [value]="i.name">{{i.name}}</option>
+            </select> 
             </td>
             <td>
-              <select name="Kategori" id="Kategori" class="ms-1 d-block w-100" required>
-                <option>Click Here</option>
-                <option *ngFor="let j of vehicleList" value="{{j.number}}">{{j.type}} ({{j.number}}) 
-                  <div class="online-indicator">
-                    <span class="blink"></span>
-                  </div>
+              <select name="Kategori" id="Kategori" [(ngModel)]="vehicle" class="ms-1 d-block w-100" required>
+                <option *ngFor="let j of vehicleList" [value]="j.number">{{j.type}} ({{j.number}}) 
               </option>
             </select>
             </td>
-            <td><button class="btn btn-success">Confirm</button></td>
+            <td><button (click)="assignRequest(u._id, driver, vehicle)" class="btn btn-success">Confirm</button></td>
           </tr>
         </tbody>
       </table>

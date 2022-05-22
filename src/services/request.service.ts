@@ -9,11 +9,13 @@ export class RequestService {
 
   private _sendRequestUrl ="http://localhost:8000/request/sendRequest";
   private _getRequestByUserId ="http://localhost:8000/request/getAllRequestsByUserId/";
-  private _getRequestsByStatus ="http://localhost:8000/request/getAllRequestsByStatus/";
+  private _getRequestsByStatus ="http://localhost:8000/request/getAllRequestsByStatus";
   private _getRequestById ="http://localhost:8000/request/getRequestById/";
   private _getAllRequests ="http://localhost:8000/request/getAllRequests";
   private _getAllRequestsBySupervisor ="http://localhost:8000/request/getAllRequestsBySupervisor/";
   private _approveRejectRequestById ="http://localhost:8000/request/approveRejectRequestById/";
+  private _driverVehicleAssignById ="http://localhost:8000/request/driverVehicleAssignById/";
+  private _driverApproveRequestById ="http://localhost:8000/request/driverApproveRequestById/";
 
   constructor(private http : HttpClient ) { }
 
@@ -25,8 +27,8 @@ export class RequestService {
     return this.http.get<any>(`${this._getRequestByUserId}${id}`)
   }
 
-  getRequestsByStatus(status :any){
-    return this.http.get<any>(`${this._getRequestsByStatus}${status}`)
+  getRequestsByStatus(){
+    return this.http.get<any>(`${this._getRequestsByStatus}`)
   }
 
   getAllrequests(){
@@ -45,6 +47,25 @@ export class RequestService {
     let body = new HttpParams()
     .set('status', request.status);
     return this.http.put<any>(`${this._approveRejectRequestById}${request._id}`, body.toString(),{
+      headers: new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+    });
+  }
+
+  driverVehicleAssignById(request : any){
+    let body = new HttpParams()
+    .set('assignedDriver', request.assignedDriver)
+    .set('assignedVehicle', request.assignedVehicle);
+    return this.http.put<any>(`${this._driverVehicleAssignById}${request._id}`, body.toString(),{
+      headers: new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+    });
+  }
+
+  driverApproveRequestById(request : any){
+    let body = new HttpParams()
+    .set('isDriverAccepted', request.isDriverAccepted);
+    return this.http.put<any>(`${this._driverApproveRequestById}${request._id}`, body.toString(),{
       headers: new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded')
     });

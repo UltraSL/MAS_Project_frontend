@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DriverService } from 'src/services/driver.service';
 import { RequestService } from 'src/services/request.service';
 import { VehicleService } from 'src/services/vehicle.service';
@@ -15,12 +16,16 @@ export class TransporterViewRequestsComponent implements OnInit {
   clickedRequestId : any = {}
   driverList : any = {}
   vehicleList : any = {}
+  updateRequest : any = {}
+  driver : any = {}
+  vehicle : any = {}
+  reqId : any = {}
 
   constructor( private request : RequestService, public _auth : AuthService, private _driver : DriverService,
-    private _vehicle : VehicleService) { }
+    private _vehicle : VehicleService, private _router : Router) { }
 
   ngOnInit(): void {
-    this.request.getRequestsByStatus("approved").subscribe((res: any)=> {
+    this.request.getRequestsByStatus().subscribe((res: any)=> {
       this.searchedRequests=res,
       console.log(res)
     })
@@ -42,8 +47,25 @@ export class TransporterViewRequestsComponent implements OnInit {
     console.log(this.clickedRequestId+" id of Request");
   }
 
-  assign(id:any, date : any, driverName:any, vehicleNumber:any){
-    
+  assignRequest(id:any, assignedDriver:any, assignedVehicle:any){
+    console.log("id "+id)
+    console.log("Driver "+assignedDriver)
+    console.log("Vehicle "+assignedVehicle)
+    this.updateRequest._id = id;
+    this.updateRequest.assignedDriver = assignedDriver;
+    this.updateRequest.assignedVehicle = assignedVehicle;
+    console.log(this.updateRequest)
+    this.request.driverVehicleAssignById(this.updateRequest)
+    .subscribe(
+      res => {
+        this.updateRequest.push=res;
+        window.alert("successfully Assigned");
+        this._router.navigate(['/transport-view-requests']);
+      },
+      err => {
+        console.log(err)
+      }
+    )
   }
 
 }
