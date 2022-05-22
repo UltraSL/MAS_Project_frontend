@@ -12,6 +12,7 @@ export class RequestService {
   private _getRequestsByStatus ="http://localhost:8000/request/getAllRequestsByStatus/";
   private _getRequestById ="http://localhost:8000/request/getRequestById/";
   private _getAllRequests ="http://localhost:8000/request/getAllRequests";
+  private _getAllRequestsBySupervisor ="http://localhost:8000/request/getAllRequestsBySupervisor/";
   private _approveRejectRequestById ="http://localhost:8000/request/approveRejectRequestById/";
 
   constructor(private http : HttpClient ) { }
@@ -34,6 +35,10 @@ export class RequestService {
 
   getRequestById(id :any){
     return this.http.get<any>(`${this._getRequestById}${id}`)
+  }
+
+  getRequestByBySupervisor(managerUserName :any){
+    return this.http.get<any>(`${this._getAllRequestsBySupervisor}${managerUserName}`)
   }
 
   approveRejectRequestById(request : any){
