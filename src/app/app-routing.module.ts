@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DriverListComponent } from './driver-list/driver-list.component';
+import { DriverViewRequestComponent } from './driver-view-request/driver-view-request.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ManagerGuard } from './guards/manager.guard';
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path : 'transport-view-requests', component : TransporterViewRequestsComponent, canActivate : [TransportManagerGuard] },
   { path : 'vehicle-list', component : VehicleListComponent, canActivate : [TransportManagerGuard] },
   { path : 'drivers-list', component : DriverListComponent, canActivate : [TransportManagerGuard] },
+  { path : 'driver-view-requests', component : DriverViewRequestComponent },
 
 ];
 

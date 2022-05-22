@@ -22,6 +22,7 @@ import { ViewRequestDetailsComponent } from './view-request-details/view-request
 import { TransporterViewRequestsComponent } from './transporter-view-requests/transporter-view-requests.component';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { DriverListComponent } from './driver-list/driver-list.component';
+import { DriverViewRequestComponent } from './driver-view-request/driver-view-request.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { DriverListComponent } from './driver-list/driver-list.component';
        ViewRequestDetailsComponent,
        TransporterViewRequestsComponent,
        VehicleListComponent,
-       DriverListComponent
+       DriverListComponent,
+       DriverViewRequestComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from 'src/services/request.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthService } from '../auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public _auth : AuthService ) { }
+  constructor(public _auth : AuthService , private request : RequestService) { }
 
   ngOnInit(): void {
   }
@@ -19,4 +20,7 @@ export class DashboardComponent implements OnInit {
     this.toggle = !this.toggle;
     this.status = this.toggle ? "Enable" : "Disable";
   }
+
+  
+
 }

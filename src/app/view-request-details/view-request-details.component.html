@@ -90,6 +90,41 @@
                                 </div>
                             </li>
                             <li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-5 col-5">
+                                            <strong class="margin-10px-left xs-margin-four-left text-green">assignedDriver:</strong>
+                                        </div>
+                                        <div class="col-md-7 col-7">
+                                            <p>{{this.searchedRequest.assignedDriver}}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-md-5 col-5">
+                                                <strong class="margin-10px-left xs-margin-four-left text-orange">assignedVehicle:</strong>
+                                            </div>
+                                            <div class="col-md-7 col-7">
+                                                <p>{{this.searchedRequest.assignedVehicle}}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-md-5 col-5">
+                                                <strong class="margin-10px-left xs-margin-four-left text-purple">Driver Accepted :</strong>
+                                            </div>
+                                            <div class="col-md-7 col-7">
+                                                <p>{{this.searchedRequest.isDriverAccepted}}</p>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+                            <li>    
                                 <div class="row" *ngIf="auth.mngLoggedIn()">
                                     <div class="col-md-5 col-5">
                                         <button class="btn btn-success" (click)="approveRequest()">Approve</button>

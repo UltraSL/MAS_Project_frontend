@@ -62,6 +62,14 @@ export class AuthService {
     return false;
   }
 
+  DriverLoggedIn() {
+    this.userData = JSON.parse(localStorage.getItem('user') || '{}');
+    if (this.userData.position == 'driver') {
+      return true;
+    }
+    return false;
+  }
+
   updateUserDetails(user: any) {
     let body = new HttpParams()
       .set('firstName', user.firstName)
