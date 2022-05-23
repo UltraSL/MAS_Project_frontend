@@ -37,7 +37,7 @@ html {
     justify-content: center;
     width: 100%;
     min-height: 100%;
-    padding: 100px;
+    padding: 150px;
   }
   
   #formContent {
@@ -116,7 +116,7 @@ html {
   }
   
   input[type=text] {
-    background-color: #f06694;
+    background-color: #ffffff;
     border: none;
     color: #0d0d0d;
     padding: 15px 32px;
@@ -126,7 +126,7 @@ html {
     font-size: 16px;
     margin: 5px;
     width: 85%;
-    border: 2px solid #f6f6f6;
+    border: 2px solid #918c8c;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
@@ -137,12 +137,12 @@ html {
   }
   
   input[type=text]:focus {
-    background-color: rgb(233, 106, 176);
+    background-color: rgb(255, 255, 255);
     border-bottom: 2px solid #5fbae9;
   }
   
   input[type=text]:placeholder {
-    color: #f75aba;
+    color: #76d7e4;
   }
 
   input[type=password] {
@@ -156,7 +156,7 @@ html {
     font-size: 16px;
     margin: 5px;
     width: 85%;
-    border: 2px solid #f6f6f6;
+    border: 2px solid #918c8c;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;

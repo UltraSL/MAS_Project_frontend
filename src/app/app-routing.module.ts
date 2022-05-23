@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { AcceptedRequestsComponent } from './accepted-requests/accepted-requests.component';
 import { AuthGuard } from './auth.guard';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DriverListComponent } from './driver-list/driver-list.component';
 import { DriverViewRequestComponent } from './driver-view-request/driver-view-request.component';
@@ -25,10 +27,12 @@ const routes: Routes = [
   { path :'', redirectTo : '/home' , pathMatch : 'full'},
   { path : 'home', component : HomeComponent},
   { path : 'login', component : LoginComponent},
+  { path : 'about', component : AboutUsComponent},
+  { path : 'contact-us', component : ContactUsComponent},
   { path : 'register', component : RegistrationComponent},
   { path : 'forgetpassword', component : ForgetPasswordComponent},
   { path : 'edit-profile', component : EditProfileComponent},
-  { path : 'dashboard', component : DashboardComponent},
+  { path : 'dashboard', component : DashboardComponent , canActivate : [AuthGuard]},
   { path : 'request', component : RequestComponent},
   { path : 'statusrequest', component : StatusrequestComponent},
   { path : 'view-all-request', component : ViewRequestComponent},

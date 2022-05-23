@@ -24,6 +24,9 @@ import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { DriverListComponent } from './driver-list/driver-list.component';
 import { DriverViewRequestComponent } from './driver-view-request/driver-view-request.component';
 import { AcceptedRequestsComponent } from './accepted-requests/accepted-requests.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({
@@ -46,14 +49,17 @@ import { AcceptedRequestsComponent } from './accepted-requests/accepted-requests
        VehicleListComponent,
        DriverListComponent,
        DriverViewRequestComponent,
-       AcceptedRequestsComponent
+       AcceptedRequestsComponent,
+       AboutUsComponent,
+       ContactUsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

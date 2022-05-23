@@ -112,4 +112,12 @@ export class AuthService {
     localStorage.clear()
     this._router.navigate(['/home'])
   }
+
+  anyUserLogged(){
+    this.userData = JSON.parse(localStorage.getItem('user') || '{}');
+    if (this.userData.position == 'driver' || this.userData.position == 'transporter' || this.userData.position == 'manager' || this.userData.position == 'employee') {
+      return true;
+    }
+    return false;
+  }
 }
