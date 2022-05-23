@@ -1,10 +1,7 @@
 
-
   <div id="sidebar">
     <header>
       <img src="https://iconape.com/wp-content/files/eo/277350/svg/277350.svg" id="icon" alt="User Icon" />
-
-
     </header>
     <ul class="nav">
       <li *ngIf="_auth.mngLoggedIn()">
@@ -84,6 +81,15 @@
         <br>
         <br>
       </li>
+
+      <li>
+          <button class="btn btn-light" (click)="_auth.logoutUser()">Log out</button>
+        <br>
+        <br>
+      </li>
+      
+
+      
 
     </ul>
   </div>
