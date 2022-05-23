@@ -12,10 +12,10 @@ export class AuthGuard implements CanActivate {
     private _router : Router) {}
 
     canActivate(): boolean {
-      if(this._authService.empLoggedIn()){
+      if(this._authService.anyUserLogged()){
         return true
       } else {
-        window.alert("You are not an employee")
+        window.alert("You are not logged In")
         this._router.navigate(['/login'])
         return false
       }
