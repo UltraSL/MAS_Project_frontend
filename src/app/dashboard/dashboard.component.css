@@ -6,6 +6,12 @@ body {
   font-size: 16px;
 }
 
+li button {
+  margin-left: 100px;
+  margin-bottom: -700px;
+  justify-content: space-between;
+  flex-direction: column;
+}
 /* Toggle Styles */
 
 #viewport {
@@ -91,4 +97,6 @@ margin: 20px;
 border-radius: 10%;
 
 }
+
+
 

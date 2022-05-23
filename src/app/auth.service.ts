@@ -21,7 +21,7 @@ export class AuthService {
   private profiles: UserProfile[] = [];
   private profiles$ = new Subject<UserProfile[]>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient , private _router : Router) {}
 
   loginUser(user: any) {
     return this.http.post<any>(this._loginUrl, user);
@@ -106,5 +106,10 @@ export class AuthService {
 
   getUserImageById(id :any){
     return this.http.get<any>(`${this._getImage}${id}`)
+  }
+
+  logoutUser(){
+    localStorage.clear()
+    this._router.navigate(['/home'])
   }
 }
