@@ -16,6 +16,8 @@ export class RequestService {
   private _approveRejectRequestById ="http://localhost:8000/request/approveRejectRequestById/";
   private _driverVehicleAssignById ="http://localhost:8000/request/driverVehicleAssignById/";
   private _driverApproveRequestById ="http://localhost:8000/request/driverApproveRequestById/";
+  private _getAllRequestsByDriver ="http://localhost:8000/request/getAllRequestsByDriver/";
+  private _getAllAcceptedRequests ="http://localhost:8000/request/getAllAcceptedRequests/";
 
   constructor(private http : HttpClient ) { }
 
@@ -41,6 +43,14 @@ export class RequestService {
 
   getRequestByBySupervisor(managerUserName :any){
     return this.http.get<any>(`${this._getAllRequestsBySupervisor}${managerUserName}`)
+  }
+
+  getAllRequestsByDriver(assignedDriver :any){
+    return this.http.get<any>(`${this._getAllRequestsByDriver}${assignedDriver}`)
+  }
+
+  getAllAcceptedRequests(assignedDriver :any){
+    return this.http.get<any>(`${this._getAllAcceptedRequests}${assignedDriver}`)
   }
 
   approveRejectRequestById(request : any){

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AcceptedRequestsComponent } from './accepted-requests/accepted-requests.component';
 import { AuthGuard } from './auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DriverListComponent } from './driver-list/driver-list.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path : 'vehicle-list', component : VehicleListComponent, canActivate : [TransportManagerGuard] },
   { path : 'drivers-list', component : DriverListComponent, canActivate : [TransportManagerGuard] },
   { path : 'driver-view-requests', component : DriverViewRequestComponent },
+  { path : 'accepted-requests', component : AcceptedRequestsComponent },
 
 ];
 

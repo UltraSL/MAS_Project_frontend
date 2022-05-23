@@ -11,11 +11,14 @@ export class DriverViewRequestComponent implements OnInit {
   searchedRequests : any = {}
   clickedRequestId : any = {}
   updateRequest : any = {}
+  userData : any = {}
 
   constructor(private request : RequestService, private _router : Router) { }
 
   ngOnInit(): void {
-    this.request.getRequestsByStatus().subscribe((res: any)=> {
+    this.userData = JSON.parse(localStorage.getItem('user') || '{}');
+    
+    this.request.getAllRequestsByDriver(this.userData.username).subscribe((res: any)=> {
       this.searchedRequests=res,
       console.log(res)
     })

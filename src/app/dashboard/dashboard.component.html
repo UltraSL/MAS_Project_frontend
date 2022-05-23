@@ -29,7 +29,7 @@
       <br>
       </li>
       
-      <li *ngIf="!_auth.TransportMngLoggedIn()">
+      <li *ngIf="_auth.mngLoggedIn() || _auth.empLoggedIn()">
         <a routerLink="/request">
           <i class="zmdi zmdi-view-dashboard"></i> Add request
         </a>
@@ -73,6 +73,16 @@
         <a routerLink="/edit-profile">
           <i class="zmdi zmdi-settings"></i>Update profile
         </a>
+        <br>
+        <br>
+      </li>
+
+      <li>
+        <a routerLink="/accepted-requests">
+          <i class="zmdi zmdi-settings"></i>View Accepted Requests
+        </a>
+        <br>
+        <br>
       </li>
 
     </ul>
