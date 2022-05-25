@@ -16,7 +16,7 @@ import { RequestComponent } from './request/request.component';
 import { StatusrequestComponent } from './statusrequest/statusrequest.component';
 
 import { RegistrationComponent } from './registration/registration.component';
-
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { ViewRequestComponent } from './view-request/view-request.component';
 import { ViewRequestDetailsComponent } from './view-request-details/view-request-details.component';
 import { TransporterViewRequestsComponent } from './transporter-view-requests/transporter-view-requests.component';
@@ -28,7 +28,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 
-
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule} from 'agm-direction';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,9 +60,21 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyAiOuKxmO0fR-azjwFPGiff04CtB15WIWQ",
+      libraries: ["places",'drawing','geometry']
+     
+    }),
+    AgmDirectionModule,
+    GooglePlaceModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+
+//AIzaSyCaKbVhcX_22R_pRKDYuNA7vox-PtGaDkI
