@@ -41,9 +41,9 @@
             <input ngx-google-places-autocomplete (onAddressChange)="To($event)" type="text" class="form-control" id="UrunMiktar" required 
              >
               <p>From: {{ userAddressTo }}</p>
-              <button type="button" class="btn btn-light" (click)="getDirection()">Get Route</button>
+              <button type="button" class="btn btn-light" (click)="setRoutePolyline()">Get Route</button>
              
-              <button type="button" class="btn btn-light" style="margin:10px" (click)="calculateDistance()"> Distance</button>
+             
           </div>
           <div class="mb-3">
           <agm-map style="height:300px ; width: 520px;" [latitude]="latitude" [longitude]="longitude" (mapClick)="mapClicked($event)"
@@ -53,7 +53,8 @@
     
           <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
         </agm-map>
-        <p>Distance: {{distance}} km</p>
+        <p>Distance: {{distance}} </p>
+        <p>Time: {{time}} </p>
       </div>
           <div class="mb-3">
             <label for="Kategori" class="form-label">Type of Vehicle</label>
