@@ -36,16 +36,24 @@ export class RequestComponent implements OnInit {
   empRequest: any = {};
   userData: any = {};
   dir: any = {};
-
+  map: google.maps.Map;
   // initial center position for the map
   latitude: number = 7.448153415867239;
   longitude: number = 80.72284109804686;
 
+  ds: google.maps.DirectionsService;
+  dr: google.maps.DirectionsRenderer;
+  time: any;
   constructor(private _request: RequestService, private _router: Router) {}
 
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
     this.setCurrentLocation();
+
+    this.ds = new google.maps.DirectionsService();
+    this.dr = new google.maps.DirectionsRenderer({
+      suppressMarkers: true,
+    });
   }
 
   From(address: any) {
@@ -67,7 +75,6 @@ export class RequestComponent implements OnInit {
     this.markerPositions.push({
       lat: this.userLatitude1,
       lng: this.userLongitude1,
-     
     });
     console.log(this.userAddressTo);
     console.log(this.userLatitude1, this.userLongitude1);
@@ -92,7 +99,6 @@ export class RequestComponent implements OnInit {
     this.markerPositions.push({
       lat: event.coords.lat,
       lng: event.coords.lng,
-      
     });
     console.log(this.markerPositions);
   }
@@ -105,7 +111,7 @@ export class RequestComponent implements OnInit {
     this.empRequest.user_id = this.userData._id;
     this.empRequest.username = this.userData.username;
     this.empRequest.managerUserName = this.userData.supervisorName;
-    this.empRequest.locationTo = this.userAddressTo; 
+    this.empRequest.locationTo = this.userAddressTo;
     this.empRequest.locationFrom = this.userAddressFrom;
     this._request.sendRequest(this.empRequest).subscribe({
       complete: () => {
@@ -117,24 +123,32 @@ export class RequestComponent implements OnInit {
     });
   }
 
-  getDirection() {
-    this.dir = {
-      origin: { lat: this.userLatitude, lng: this.userLongitude },
-      destination: { lat: this.userLatitude1, lng: this.userLongitude1 },
-      travelMode: 'DRIVING',
-      provideRouteAlternatives: true,
- 
-    };
-  }
-
   calculateDistance() {
     const A = new google.maps.LatLng(this.userLatitude, this.userLongitude);
     const B = new google.maps.LatLng(this.userLatitude1, this.userLongitude1);
-   this.distance = google.maps.geometry.spherical.computeDistanceBetween(
-      A,
-      B
-    );
-    this.distance=this.distance/800;
- 
+    this.distance = google.maps.geometry.spherical.computeDistanceBetween(A, B);
+    this.distance = this.distance / 800;
+  }
+
+  setRoutePolyline() {
+    this.dir = {
+      origin: { lat: this.userLatitude, lng: this.userLongitude },
+      destination: { lat: this.userLatitude1, lng: this.userLongitude1 },
+      travelMode: google.maps.TravelMode.DRIVING,
+    };
+
+    this.ds.route(this.dir, (response, status) => {
+      this.dr.setOptions({
+        suppressPolylines: false,
+        map: this.map,
+      });
+
+      if (status == google.maps.DirectionsStatus.OK) {
+        this.dr.setDirections(response);
+
+        this.distance = response.routes[0].legs[0].distance.text;
+        this.time = response.routes[0].legs[0].duration.text;
+      }
+    });
   }
 }
