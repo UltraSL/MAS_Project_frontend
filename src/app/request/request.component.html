@@ -90,7 +90,7 @@
 
     <agm-map style="height:800px ; width: 700px;" [latitude]="latitude" [longitude]="longitude" (mapClick)="mapClicked($event)"
       (mapRightclick)="removeLastMarker()" >
-      <agm-marker *ngFor="let m of markerPositions" [markerDraggable]="true" #marker [latitude]="m.lat"
+      <agm-marker *ngFor="let m of markerPositions"  [markerDraggable]="true" #marker [latitude]="m.lat"
         [longitude]="m.lng" ></agm-marker>
 
       <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>

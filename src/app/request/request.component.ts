@@ -67,6 +67,7 @@ export class RequestComponent implements OnInit {
     this.markerPositions.push({
       lat: this.userLatitude1,
       lng: this.userLongitude1,
+     
     });
     console.log(this.userAddressTo);
     console.log(this.userLatitude1, this.userLongitude1);
@@ -91,6 +92,7 @@ export class RequestComponent implements OnInit {
     this.markerPositions.push({
       lat: event.coords.lat,
       lng: event.coords.lng,
+      
     });
     console.log(this.markerPositions);
   }
@@ -119,6 +121,7 @@ export class RequestComponent implements OnInit {
       destination: { lat: this.userLatitude1, lng: this.userLongitude1 },
       travelMode: 'DRIVING',
       provideRouteAlternatives: true,
+ 
     };
   }
 
