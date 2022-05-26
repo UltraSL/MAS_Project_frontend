@@ -130,6 +130,8 @@ export class RequestComponent implements OnInit {
     this.distance = this.distance / 800;
   }
 
+  
+
   setRoutePolyline() {
     this.dir = {
       origin: { lat: this.userLatitude, lng: this.userLongitude },
