@@ -81,8 +81,8 @@ export class RequestComponent implements OnInit {
         this.zoom = 12;
 
         this.markerPositions.push({
-          lat: this.userLatitude0,
-          lng: this.userLongitude0,
+          lat: this.latitude,
+          lng: this.longitude,
         });
       });
     }
@@ -130,10 +130,11 @@ export class RequestComponent implements OnInit {
   calculateDistance() {
     const A = new google.maps.LatLng(this.userLatitude, this.userLongitude);
     const B = new google.maps.LatLng(this.userLatitude1, this.userLongitude1);
-    const distance = google.maps.geometry.spherical.computeDistanceBetween(
+   this.distance = google.maps.geometry.spherical.computeDistanceBetween(
       A,
       B
     );
-    console.log(distance / 800);
+    this.distance=this.distance/800;
+ 
   }
 }
