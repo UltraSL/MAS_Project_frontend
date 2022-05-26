@@ -75,7 +75,7 @@
       </li>
 
       <li>
-        <a routerLink="/accepted-requests">
+        <a routerLink="/accepted-requests" *ngIf="_auth.DriverLoggedIn()">
           <i class="zmdi zmdi-settings"></i>View Accepted Requests
         </a>
         <br>

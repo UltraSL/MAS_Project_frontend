@@ -12,6 +12,11 @@
     box-shadow: -1px 1px 17px 0px rgba(0,0,0,0.75);
 }
 
+agm-map {
+    height: 60px;
+    width: 50px;
+}
+
 
 
 li {
