@@ -42,6 +42,8 @@
              >
               <p>From: {{ userAddressTo }}</p>
               <button type="button" class="btn btn-light" (click)="getDirection()">Get Route</button>
+             
+              <button type="button" class="btn btn-light" style="margin:10px" (click)="calculateDistance()"> Distance</button>
           </div>
           <div class="mb-3">
           <agm-map style="height:300px ; width: 520px;" [latitude]="latitude" [longitude]="longitude" (mapClick)="mapClicked($event)"
@@ -51,7 +53,7 @@
     
           <agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>
         </agm-map>
-        <p>{{distance}}</p>
+        <p>Distance: {{distance}} km</p>
       </div>
           <div class="mb-3">
             <label for="Kategori" class="form-label">Type of Vehicle</label>
@@ -99,8 +101,8 @@
   
       </agm-map> -->
    
-      <button type="button" (click)="calculateDistance()">Distance</button>
-      <p>{{distance}}</p>
+     
+     
   
   
   
