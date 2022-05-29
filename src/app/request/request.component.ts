@@ -106,11 +106,12 @@ export class RequestComponent implements OnInit {
   removeLastMarker() {
     this.markerPositions.pop();
   }
-
+//user_image
   sendRequest() {
     this.empRequest.user_id = this.userData._id;
     this.empRequest.username = this.userData.username;
     this.empRequest.managerUserName = this.userData.supervisorName;
+    this.empRequest.user_image = this.userData.image;
     this.empRequest.locationTo = this.userAddressTo;
     this.empRequest.locationFrom = this.userAddressFrom;
     this._request.sendRequest(this.empRequest).subscribe({
