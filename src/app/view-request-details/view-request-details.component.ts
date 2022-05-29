@@ -13,6 +13,7 @@ export class ViewRequestDetailsComponent implements OnInit {
   clickedRequestId : any = {}
   searchedRequest : any = {}
   updateRequest : any = {}
+  user : any = {}
 
   constructor( private request : RequestService, private _router : Router , public auth : AuthService) { }
 
@@ -21,8 +22,15 @@ export class ViewRequestDetailsComponent implements OnInit {
     console.log(this.clickedRequestId+" id")
     this.request.getRequestById(this.clickedRequestId).subscribe((res: any)=> {
       this.searchedRequest=res,
+      this.auth.getUserImageById(this.searchedRequest.user_id).subscribe((res: any)=>{
+        this.user=res;
+      })
       console.log(JSON.stringify(this.searchedRequest))
     })
+
+    console.log(JSON.stringify(this.user)+" imge link")
+
+    
   }
 
   approveRequest(){

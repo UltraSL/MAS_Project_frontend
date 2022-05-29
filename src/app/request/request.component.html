@@ -17,13 +17,6 @@
               [ngModelOptions]="{standalone: true}" required>
           </div>
           <div class="mb-3">
-            <label for="UrunAdi" class="form-label">Date of Reservation*</label>
-            <input type="date" class="form-control" id="UrunAdi" required placeholder="Select Time"
-              [(ngModel)]="empRequest.dateOfReservation" [ngModelOptions]="{standalone: true}">
-            <input type="time" class="form-control" id="UrunAdi" required placeholder="Select Time"
-              [(ngModel)]="empRequest.timeOfReservation" [ngModelOptions]="{standalone: true}">
-          </div>
-          <div class="mb-3">
             <label for="UrunAdi" class="form-label">Date of Trip*</label>
             <input type="date" class="form-control" id="UrunAdi" required placeholder="Select Time"
               [(ngModel)]="empRequest.dateOfTrip" [ngModelOptions]="{standalone: true}">
@@ -34,19 +27,19 @@
             <label class="form-label" for="UrunMiktar">From*</label>
             <input ngx-google-places-autocomplete (onAddressChange)="From($event)" type="text" class="form-control" id="UrunMiktar" required 
             >
-              <p>To: {{ userAddressFrom }}</p>
+              <p>From: {{ userAddressFrom }}</p>
           </div>
           <div class="mb-3">
             <label class="form-label" for="UrunMiktar">To*</label>
             <input ngx-google-places-autocomplete (onAddressChange)="To($event)" type="text" class="form-control" id="UrunMiktar" required 
              >
-              <p>From: {{ userAddressTo }}</p>
+              <p>To: {{ userAddressTo }}</p>
               <button type="button" class="btn btn-light" (click)="setRoutePolyline()">Get Route</button>
              
              
           </div>
           <div class="mb-3">
-          <agm-map style="height:300px ; width: 520px;" [latitude]="latitude" [longitude]="longitude" (mapClick)="mapClicked($event)"
+          <agm-map style="height:300px ; width: 100%;" [latitude]="latitude" [longitude]="longitude" (mapClick)="mapClicked($event)"
           (mapRightclick)="removeLastMarker()" >
           <agm-marker *ngFor="let m of markerPositions"  [markerDraggable]="true" #marker [latitude]="m.lat"
             [longitude]="m.lng" ></agm-marker>
