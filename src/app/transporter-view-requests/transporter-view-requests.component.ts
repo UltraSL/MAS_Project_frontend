@@ -29,17 +29,32 @@ export class TransporterViewRequestsComponent implements OnInit {
       this.searchedRequests=res,
       console.log(res)
     })
-
     this._driver.getAlldrivers().subscribe((res: any)=> {
       this.driverList=res,
       console.log(res)
     })
+
+    // this._driver.getAllAvailabledrivers(this.searchedRequests.dateOfTrip).subscribe((res: any)=> {
+    //   this.driverList=res
+    // })
 
     this._vehicle.getAllVehicles().subscribe((res: any)=> {
       this.vehicleList=res,
       console.log(res)
     })
   }
+
+//   onOptionsSelectedDrivers(date:string){
+//       this._driver.getAllAvailabledrivers(date).subscribe((res: any)=> {
+//       this.driverList=res
+//     })
+// }
+
+// onOptionsSelectedVehicles(date:string){
+//   this._vehicle.getAllAvailableVehicles(date).subscribe((res: any)=> {
+//   this.vehicleList=res
+// })
+// }
 
   getId(id : any){
     this.clickedRequestId = id;

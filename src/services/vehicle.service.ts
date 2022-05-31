@@ -11,12 +11,18 @@ export class VehicleService {
   private profiles$ = new Subject<Vehicle[]>();
   private _addVehicleUrl ="http://localhost:8000/vehicle/addVehicle";
   private _getAllVehicles ="http://localhost:8000/vehicle/getAllVehicles";
+  private _getAllAvailableVehicles ="http://localhost:8000/vehicle/getAvailableVehicles/";
 
   constructor(private http : HttpClient) { }
 
 
   getAllVehicles(){
     return this.http.get<any>(this._getAllVehicles)
+  }
+
+
+  getAllAvailableVehicles(date : any){
+    return this.http.get<any>(`${this._getAllAvailableVehicles}${date}`)
   }
 
   addVehicle(type:string,number:string,image: File): void {

@@ -33,6 +33,9 @@ export class DriverViewRequestComponent implements OnInit {
   approveRejectRequest(id:any, isDriverAccepted:any){
     this.updateRequest._id = id;
     this.updateRequest.isDriverAccepted = isDriverAccepted;
+    // if(isDriverAccepted){
+
+    // }
     console.log(this.updateRequest)
     this.request.driverApproveRequestById(this.updateRequest)
     .subscribe(

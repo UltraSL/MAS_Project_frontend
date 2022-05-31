@@ -114,6 +114,8 @@ export class RequestComponent implements OnInit {
     this.empRequest.user_image = this.userData.image;
     this.empRequest.locationTo = this.userAddressTo;
     this.empRequest.locationFrom = this.userAddressFrom;
+    this.empRequest.time = this.time;
+    this.empRequest.distance = this.distance;
     this._request.sendRequest(this.empRequest).subscribe({
       complete: () => {
         window.alert('Success'), this._router.navigate(['/statusrequest']);
