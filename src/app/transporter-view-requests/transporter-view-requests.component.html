@@ -23,13 +23,14 @@
             <td>{{u.status}}</td>
             <td><button class="btn btn-danger" routerLink="/view-request-details" (click)="getId(u._id)">Click to View</button></td>
             <td scope="row">
-              <select name="Kategori" id="Kategori" [(ngModel)]="driver" class="ms-1 d-block w-100" required>
-                <option *ngFor="let i of driverList" [value]="i.name">{{i.name}}</option>
+              <select #mySelect (click)="onOptionsSelectedDrivers(u.dateOfTrip)" name="Kategori" id="Kategori" [(ngModel)]="driver" class="ms-1 d-block w-100" required>      
+                <option value="">Click Here</option>
+                <option *ngFor="let i of driverList"  [ngValue]="i.name">{{i.name}}</option>
             </select> 
             </td>
             <td>
-              <select name="Kategori" id="Kategori" [(ngModel)]="vehicle" class="ms-1 d-block w-100" required>
-                <option *ngFor="let j of vehicleList" [value]="j.number">{{j.type}} ({{j.number}}) 
+              <select (click)="onOptionsSelectedVehicles(u.dateOfTrip)" name="Kategori" id="Kategori" [(ngModel)]="vehicle" class="ms-1 d-block w-100" required>
+                <option *ngFor="let j of vehicleList"  [ngValue]="j.number">{{j.type}} ({{j.number}}) 
               </option>
             </select>
             </td>

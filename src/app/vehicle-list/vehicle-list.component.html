@@ -4,19 +4,36 @@
   </div>
   <div class="col-9" style="margin-left: 350px;">
 
-<div class="card-group">
-  <div class="card" *ngFor="let v of vehicleList">
-    <img src="https://cdn.motor1.com/images/mgl/X1ko9/s1/press-kit-22-fotos-y-mas-datos-de-la-nueva-ford-ecosport.jpg" class="card-img-top" alt="img">
-    <div class="card-body" >
-      <h4 class="card-title">{{v.type}}</h4>
-      <h5 class="card-title">{{v.number}}</h5>
-      <p class="card-text"> Dates Reserved:</p>
-      <div class="list-group">
-        <a *ngFor="let dates of v.reservedDates" class="list-group-item list-group-item-action list-group-item-primary">{{dates}}</a>
-      </div>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
+<br>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<a class="float-lg-right" routerLink="/vehicle-upload"><button class="btn btn-success">Add New Vehicle</button></a>
+<div class="container">
+    <br>
+    <div class="row heading heading-icon">
+      <h2>Our Vehicles</h2>
   </div>
+	<br>
+	<div class="row" id="ads" >
+    <!-- Category Card -->
+    <div class="col-md-4" *ngFor="let v of vehicleList">
+        <div class="card rounded" style="margin: 30px; width: 300px;" >
+            <div class="card-image">
+                <span class="card-notify-badge">{{v.number}}</span>
+                <img class="img-fluid" src="{{v.image}}" width="740px"height="362px" alt="Alternate Text" />
+            </div>
+            <div class="card-image-overlay m-auto">
+                <span *ngFor="let dates of v.reservedDates" class="card-detail-badge">{{dates}}</span>
+            </div>
+            <div class="card-body text-center">
+                <div class="ad-title m-auto">
+                    <h5>{{v.type}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
