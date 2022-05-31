@@ -137,7 +137,19 @@
             </div>
           </div>
 
-        </div>
+
+
+          <div class="input-box">
+            <span class="details">Confirm Password <b style="color:red">*</b></span>
+            <input formControlName="confirmPassword" id="confirmPassword" type="password" placeholder="confirmPassword"
+              class="form-control">
+              <div *ngIf="f['confirmPassword'].touched && f['confirmPassword'].invalid" class="alert alert-danger">
+                <div *ngIf="f['confirmPassword'].errors && f['confirmPassword'].errors['required']"> confirm Password required.</div>
+             <div *ngIf="f['confirmPassword'].errors && f['confirmPassword'].errors['mustMatch']">Password should be same as Confirm password</div>
+
+            </div>
+     </div>
+     </div>
 
         <div class="button">
           <input type="submit" value="Register">
