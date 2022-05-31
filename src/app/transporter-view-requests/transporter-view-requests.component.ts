@@ -44,17 +44,22 @@ export class TransporterViewRequestsComponent implements OnInit {
     })
   }
 
-//   onOptionsSelectedDrivers(date:string){
-//       this._driver.getAllAvailabledrivers(date).subscribe((res: any)=> {
-//       this.driverList=res
-//     })
-// }
+  onOptionsSelectedDrivers(date:string){
+      this._driver.getAllAvailabledrivers(date).subscribe((res: any)=> {
+      this.driverList=res
+      console.log("first"+res)
+    })
 
-// onOptionsSelectedVehicles(date:string){
-//   this._vehicle.getAllAvailableVehicles(date).subscribe((res: any)=> {
-//   this.vehicleList=res
-// })
-// }
+}
+onOptions(){
+  this.driverList=null;
+}
+
+onOptionsSelectedVehicles(date:string){
+  this._vehicle.getAllAvailableVehicles(date).subscribe((res: any)=> {
+  this.vehicleList=res
+})
+}
 
   getId(id : any){
     this.clickedRequestId = id;
@@ -75,7 +80,7 @@ export class TransporterViewRequestsComponent implements OnInit {
       res => {
         this.updateRequest.push=res;
         window.alert("successfully Assigned");
-        this._router.navigate(['/transport-view-requests']);
+        window.location.reload();
       },
       err => {
         console.log(err)
