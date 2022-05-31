@@ -16,10 +16,12 @@ import { LoginComponent } from './login/login.component';
 import { NotificationComponent } from './notification/notification.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { RequestComponent } from './request/request.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 import { StatusrequestComponent } from './statusrequest/statusrequest.component';
 import { TransporterViewRequestsComponent } from './transporter-view-requests/transporter-view-requests.component';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
+import { VehicleUploadComponent } from './vehicle-upload/vehicle-upload.component';
 import { ViewRequestDetailsComponent } from './view-request-details/view-request-details.component';
 import { ViewRequestComponent } from './view-request/view-request.component';
 
@@ -44,7 +46,8 @@ const routes: Routes = [
   { path : 'drivers-list', component : DriverListComponent, canActivate : [TransportManagerGuard] },
   { path : 'driver-view-requests', component : DriverViewRequestComponent },
   { path : 'accepted-requests', component : AcceptedRequestsComponent },
-
+  { path : 'reset-password/:token', component : ResetPasswordComponent },
+  {path:"vehicle-upload",component:VehicleUploadComponent}
 ];
 
 @NgModule({
