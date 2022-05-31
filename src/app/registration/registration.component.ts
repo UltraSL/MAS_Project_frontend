@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from '../auth.service';
-
+import {ComparePassword } from '../_helpers/must-match.validator';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,35 +16,23 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
   submitted = false;
-  managerList : any = {}
-  department : any = {}
-  constructor(private _auth: AuthService, private _router: Router) {}
-  
-
+  managerList: any = {};
+  department: any = {};
+  constructor(private _auth: AuthService, private _router: Router,private formBuilder: FormBuilder) {}
 
   onOptionsSelected(value: any) {
- 
-   console.log("value",value);
+    console.log('value', value);
     this.department = value;
-    console.log("de",this.department);
+    console.log('de', this.department);
 
-   this._auth.getMngByDept(this.department).subscribe((res: any)=> {
-    this.managerList=res,
-
-    console.log(res)
-  
-
-  })
-
+    this._auth.getMngByDept(this.department).subscribe((res: any) => {
+      (this.managerList = res), console.log(res);
+    });
   }
 
-  ngOnInit() {
-    
-  
+  ngOnInit() {}
 
-  }
-
-  form = new FormGroup({
+  form = this.formBuilder.group({
     empNumber: new FormControl('', [Validators.required]),
     username: new FormControl('', [
       Validators.required,
@@ -57,11 +50,10 @@ export class RegistrationComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
       Validators.required,
-      Validators.minLength(8)
+      Validators.minLength(8),
     ]),
-    
-  
-    // confirmpassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
+
+    confirmPassword: new FormControl('',Validators.required,          ),
     mobile: new FormControl('', [
       Validators.required,
       Validators.minLength(10),
@@ -69,17 +61,17 @@ export class RegistrationComponent implements OnInit {
     NICNumber: new FormControl('', [Validators.required]),
     department: new FormControl('', [Validators.required]),
     supervisorName: new FormControl('', [Validators.required]),
-   
-
-  
   },
-
-
-  );
+  {
+    validator: ComparePassword("password", "confirmPassword")
+  }
+  )
   get f() {
     return this.form.controls;
   }
- 
+
+
+
   submit() {
     console.log(this.form.value);
     this._auth.addUser(this.form.value).subscribe(
