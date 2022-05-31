@@ -18,6 +18,7 @@ export class VehicleListComponent implements OnInit {
       this.vehicleList=res,
       console.log(res)
     })
+    
   }
 
 }

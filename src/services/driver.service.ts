@@ -9,6 +9,7 @@ export class DriverService {
 
   private _addDriverUrl ="http://localhost:8000/driver/addDriver";
   private _getAllDrivers ="http://localhost:8000/driver/getAllDrivers";
+  private _getAllAvailableDrivers ="http://localhost:8000/driver/getAvailableDrivers/";
 
   constructor(private http : HttpClient) { }
 
@@ -19,5 +20,10 @@ export class DriverService {
   getAlldrivers(){
     return this.http.get<any>(this._getAllDrivers)
   }
+
+  getAllAvailabledrivers(date : any){
+    return this.http.get<any>(`${this._getAllAvailableDrivers}${date}`)
+  }
+
 
 }

@@ -14,7 +14,7 @@ export class AuthService {
   userData: any = {};
 
   private _loginUrl = 'http://localhost:8000/user/Login';
-  private _forgetPasswordUrl = 'http://localhost:8000/user/forgotpassword';
+  private _forgetPasswordUrl = 'http://localhost:8000/user/resetPassword/';
   private _putUrl = 'http://localhost:8000/user/EditUser/';
   private _getImage = 'http://localhost:8000/user/profile/';
   private _getMngByDept = 'http://localhost:8000/user/getMngByDepart/';
@@ -31,7 +31,7 @@ export class AuthService {
     return this.http.post<any>('http://localhost:8000/user/AddUser', user);
   }
   sendEmail(email: any) {
-    return this.http.post<any>(this._forgetPasswordUrl, email);
+    return this.http.get<any>(`${this._forgetPasswordUrl}${email}`);
   }
 
   empLoggedIn() {
