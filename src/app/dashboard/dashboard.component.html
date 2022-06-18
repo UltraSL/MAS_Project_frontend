@@ -25,6 +25,7 @@
         <br>
       <br>
       </li>
+
       
       <li *ngIf="_auth.mngLoggedIn() || _auth.empLoggedIn()">
         <a routerLink="/request">
@@ -41,8 +42,16 @@
       <br>
       <br>
 
-      <li>
-        <a routerLink="/notification">
+      <li *ngIf="_auth.empLoggedIn()">
+        <a routerLink="/employee-notifications">
+          <i class="zmdi zmdi-calendar"></i> Notifications
+        </a>
+        <br>
+        <br>
+      </li>
+
+      <li *ngIf="_auth.DriverLoggedIn()">
+        <a routerLink="/driver-notifications">
           <i class="zmdi zmdi-calendar"></i> Notifications
         </a>
         <br>

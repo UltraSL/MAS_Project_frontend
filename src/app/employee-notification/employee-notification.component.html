@@ -15,7 +15,8 @@
             <div class="content">
               <h2 class="rank"><small>#</small>{{i+1}}</h2>
               <h4>{{msg.username}}</h4>
-              <p>{{message}}</p> 
+              <p>{{message}} {{msg.status}}</p> 
+              <p *ngIf="msg.isDriverAccepted" style="color: #fd00d7;">Driver : <b>{{msg.assignedDriver}}</b> is Assigned to your Trip</p> 
             </div>
           </div>
         </div>
