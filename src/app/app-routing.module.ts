@@ -6,8 +6,10 @@ import { AuthGuard } from './auth.guard';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DriverListComponent } from './driver-list/driver-list.component';
+import { DriverNotificationComponent } from './driver-notification/driver-notification.component';
 import { DriverViewRequestComponent } from './driver-view-request/driver-view-request.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EmployeeNotificationComponent } from './employee-notification/employee-notification.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ManagerGuard } from './guards/manager.guard';
 import { TransportManagerGuard } from './guards/transport-manager.guard';
@@ -16,7 +18,6 @@ import { LoginComponent } from './login/login.component';
 import { NotificationComponent } from './notification/notification.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { RequestComponent } from './request/request.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 import { StatusrequestComponent } from './statusrequest/statusrequest.component';
 import { TransporterViewRequestsComponent } from './transporter-view-requests/transporter-view-requests.component';
@@ -46,8 +47,9 @@ const routes: Routes = [
   { path : 'drivers-list', component : DriverListComponent, canActivate : [TransportManagerGuard] },
   { path : 'driver-view-requests', component : DriverViewRequestComponent },
   { path : 'accepted-requests', component : AcceptedRequestsComponent },
-  { path : 'reset-password/:token', component : ResetPasswordComponent },
-  {path:"vehicle-upload",component:VehicleUploadComponent}
+  { path: "vehicle-upload",component:VehicleUploadComponent},
+  { path:"employee-notifications",component: EmployeeNotificationComponent},
+  // { path:"driver-notifications", component: DriverNotificationComponent}
 ];
 
 @NgModule({

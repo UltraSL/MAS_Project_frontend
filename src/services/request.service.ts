@@ -18,6 +18,10 @@ export class RequestService {
   private _driverApproveRequestById ="http://localhost:8000/request/driverApproveRequestById/";
   private _getAllRequestsByDriver ="http://localhost:8000/request/getAllRequestsByDriver/";
   private _getAllAcceptedRequests ="http://localhost:8000/request/getAllAcceptedRequests/";
+  private _getAllRequestsByManagerAndPending ="http://localhost:8000/request/getAllRequestsByManagerAndPending/";
+  private _getAllRequestsByUserAndApprovedOrReject ="http://localhost:8000/request/getAllRequestsByUserAndApprovedOrReject/";
+  private _getAllRequestsByAssignedDriver ="http://localhost:8000/request/getAllRequestsByAssignedDriver/";
+
 
   constructor(private http : HttpClient ) { }
 
@@ -45,8 +49,20 @@ export class RequestService {
     return this.http.get<any>(`${this._getAllRequestsBySupervisor}${managerUserName}`)
   }
 
+  getRequestByManagerUserNameAndPending(managerUserName :any){
+    return this.http.get<any>(`${this._getAllRequestsByManagerAndPending}${managerUserName}`)
+  }
+
+  getAllRequestsByUserAndApprovedOrReject(username :any){
+    return this.http.get<any>(`${this._getAllRequestsByUserAndApprovedOrReject}${username}`)
+  }
+
   getAllRequestsByDriver(assignedDriver :any){
     return this.http.get<any>(`${this._getAllRequestsByDriver}${assignedDriver}`)
+  }
+
+  getAllRequestsByAssignedDriver(username :any){
+    return this.http.get<any>(`${this._getAllRequestsByAssignedDriver}${username}`)
   }
 
   getAllAcceptedRequests(assignedDriver :any){

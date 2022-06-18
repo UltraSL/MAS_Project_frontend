@@ -20,7 +20,7 @@ export class AuthService {
   private _putUrl = 'http://localhost:8000/user/EditUser/';
   private _getImage = 'http://localhost:8000/user/profile/';
   private _getMngByDept = 'http://localhost:8000/user/getMngByDepart/';
-  private _resetUrl = 'http://localhost:8000/user/resetPassword';
+  private _getDriverByUserName = 'http://localhost:8000/user/getDriverByUserName/';
   
   private profiles: UserProfile[] = [];
   private profiles$ = new Subject<UserProfile[]>();
@@ -56,6 +56,10 @@ export class AuthService {
 
   getMngByDept(department : any){
     return this.http.get<any>(`${this._getMngByDept}${department}`)
+  }
+
+  getDriverByUserName(username : any){
+    return this.http.get<any>(`${this._getDriverByUserName}${username}`)
   }
 
   TransportMngLoggedIn() {
@@ -123,10 +127,6 @@ export class AuthService {
       return true;
     }
     return false;
-  }
-
-  resetPassword(password:any) {
-return this.http.put(this._resetUrl, password);
   }
 
 }

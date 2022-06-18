@@ -30,8 +30,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule} from 'agm-direction';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { VehicleUploadComponent } from './vehicle-upload/vehicle-upload.component';
+import { EmployeeNotificationComponent } from './employee-notification/employee-notification.component';
+import { DriverNotificationComponent } from './driver-notification/driver-notification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,8 +56,9 @@ import { VehicleUploadComponent } from './vehicle-upload/vehicle-upload.componen
        AcceptedRequestsComponent,
        AboutUsComponent,
        ContactUsComponent,
-       ResetPasswordComponent,
-       VehicleUploadComponent
+       VehicleUploadComponent,
+       EmployeeNotificationComponent,
+       DriverNotificationComponent
   ],
   imports: [
     BrowserModule,
