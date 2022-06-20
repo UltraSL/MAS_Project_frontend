@@ -9,6 +9,7 @@ import { DriverListComponent } from './driver-list/driver-list.component';
 import { DriverNotificationComponent } from './driver-notification/driver-notification.component';
 import { DriverViewRequestComponent } from './driver-view-request/driver-view-request.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EmergencyComponent } from './emergency/emergency.component';
 import { EmployeeNotificationComponent } from './employee-notification/employee-notification.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ManagerGuard } from './guards/manager.guard';
@@ -49,7 +50,8 @@ const routes: Routes = [
   { path : 'accepted-requests', component : AcceptedRequestsComponent },
   { path: "vehicle-upload",component:VehicleUploadComponent},
   { path:"employee-notifications",component: EmployeeNotificationComponent},
-  // { path:"driver-notifications", component: DriverNotificationComponent}
+  // { path:"driver-notifications", component: DriverNotificationComponent},
+  { path:"emergency",component: EmergencyComponent},
 ];
 
 @NgModule({

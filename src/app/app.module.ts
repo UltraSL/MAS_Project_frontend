@@ -33,6 +33,7 @@ import { AgmDirectionModule} from 'agm-direction';
 import { VehicleUploadComponent } from './vehicle-upload/vehicle-upload.component';
 import { EmployeeNotificationComponent } from './employee-notification/employee-notification.component';
 import { DriverNotificationComponent } from './driver-notification/driver-notification.component';
+import { EmergencyComponent } from './emergency/emergency.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,8 @@ import { DriverNotificationComponent } from './driver-notification/driver-notifi
        ContactUsComponent,
        VehicleUploadComponent,
        EmployeeNotificationComponent,
-       DriverNotificationComponent
+       DriverNotificationComponent,
+       EmergencyComponent
   ],
   imports: [
     BrowserModule,
