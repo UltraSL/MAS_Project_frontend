@@ -13,32 +13,36 @@
      <div class ="card" style="margin-right: 30%;">
         <br>
         <h5 style="margin:10px ;">Hi , {{this.userData.username}}</h5>
-<div class="boxes">
- 
-    <h5>Type of Emergency </h5>
-    <br>
-    <input type="checkbox" id="box-1" value="Delay due to trafic">
-    <label for="box-1"><b>Delay due to trafic</b></label>
-  
-    <input type="checkbox" id="box-2" value="Driver is late">
-    <label for="box-2"><b>Driver is late</b> </label>
-  
-    <input type="checkbox" id="box-3" value="Dealy in meeting">
-    <label for="box-3"><b>Dealy in meeting</b></label>
 
-    <input type="checkbox" id="box-4" value="Task postpond">
-    <label for="box-4"><b>Task postpond</b> </label>
+
+        <div class="container">
   
-    <input type="checkbox" id="box-5" value="Other">
-    <label for="box-5"><b>Other</b></label>
-
-    <textarea rows="3" cols="50" placeholder="Type here ...."></textarea>
-
-    <br>
-    <br>
-    <h6>Please contact 0776340456 for any inquires/assistance.</h6>
-  
-    <br>
-  <button type="button" style="margin-left: 40%;" class="btn btn-danger">Submit</button>
-
-  </div>
+          <h2>Your favorite thing in the world:</h2>
+          
+          <ul>
+          <li>
+            <input type="radio" id="f-option" name="selector">
+            <label for="f-option">Pizza</label>
+            
+            <div class="check"></div>
+          </li>
+          
+          <li>
+            <input type="radio" id="s-option" name="selector">
+            <label for="s-option">Bacon</label>
+            
+            <div class="check"><div class="inside"></div></div>
+          </li>
+          
+          <li>
+            <input type="radio" id="t-option" name="selector">
+            <label for="t-option">Cats</label>
+            
+            <div class="check"><div class="inside"></div></div>
+          </li>
+        </ul>
+        </div>
+        
+        <div class="signature">
+          <p>Made with <i class="much-heart"></i> by <a href="https://codepen.io/AngelaVelasquez">Angela Velasquez</a></p>
+        </div>

@@ -151,7 +151,7 @@ export class RequestComponent implements OnInit {
       if (status == google.maps.DirectionsStatus.OK) {
         this.dr.setDirections(response);
 
-        this.distance = response.routes[0].legs[0].distance.text;
+        this.distance = response.routes[0].legs[0].distance.value/1000;
         this.time = response.routes[0].legs[0].duration.text;
       }
     });
