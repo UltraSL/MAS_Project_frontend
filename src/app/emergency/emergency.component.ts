@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmergencyComponent implements OnInit {
 
+  userData : any = {}
+  emergencyData : any = {}
+
   constructor() { }
 
   ngOnInit(): void {
+    this.userData = JSON.parse(localStorage.getItem('user') || '{}');
   }
 
 }
