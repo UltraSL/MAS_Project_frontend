@@ -34,6 +34,7 @@ import { VehicleUploadComponent } from './vehicle-upload/vehicle-upload.componen
 import { EmployeeNotificationComponent } from './employee-notification/employee-notification.component';
 import { DriverNotificationComponent } from './driver-notification/driver-notification.component';
 import { EmergencyComponent } from './emergency/emergency.component';
+import { EmergencyViewComponent } from './emergency-view/emergency-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { EmergencyComponent } from './emergency/emergency.component';
        VehicleUploadComponent,
        EmployeeNotificationComponent,
        DriverNotificationComponent,
-       EmergencyComponent
+       EmergencyComponent,
+       EmergencyViewComponent
   ],
   imports: [
     BrowserModule,
