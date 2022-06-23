@@ -18,6 +18,7 @@ export class RegistrationComponent implements OnInit {
   submitted = false;
   managerList: any = {};
   department: any = {};
+  position: any = {};
   constructor(private _auth: AuthService, private _router: Router,private formBuilder: FormBuilder) {}
 
   onOptionsSelected(value: any) {

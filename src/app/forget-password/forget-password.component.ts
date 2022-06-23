@@ -18,10 +18,18 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
   sendEmail(){
-    this._auth.sendEmail(this.email)
+    this._auth.sendEmail(this.email.email)
     .subscribe(
       res => {
-        window.alert("Success")
+        if (
+          res.code == 200 &&
+          res.success == false &&
+          res.message == 'no user'
+        ){
+          window.alert("No user")
+        }else{
+          window.alert("success")
+        }
       }
     )
   }

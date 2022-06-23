@@ -37,7 +37,9 @@ export class EmergencyComponent implements OnInit {
   
     this.emergency.submitData(this.form.value).subscribe({
       complete: () => {
-        window.alert('Success'),this._router.navigate(['/emegency']);},
+        window.alert('Success'),
+        window.location.reload();
+      },
       
       error: () => {
         console.log('Error');
