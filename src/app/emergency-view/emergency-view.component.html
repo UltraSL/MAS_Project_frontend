@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-3">
+      <app-dashboard></app-dashboard>
+    </div>
+    <div class="col-9">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">User Name</th>
+     
+      <th scope="col">Message</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emergency of emergencyData;let i= index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{emergency.username}}</td>
+      <td>{{emergency.message}}</td>
+      <td>{{emergency.date}}</td>
+    </tr>
+  </tbody>

@@ -13,4 +13,9 @@ export class EmergencyService {
   submitData(user :any){
     return this.http.post<any>(this.addEmergency, user)
   }
+
+  getAllEmergencies(){
+    return this.http.get<any>('http://localhost:8000/emergency/getAllEmergencies')
+  }
+
 }
