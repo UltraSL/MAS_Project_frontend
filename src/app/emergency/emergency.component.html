@@ -1,58 +1,64 @@
-
 <div class="row">
-    <div class="col-3">
-      <app-dashboard></app-dashboard>
-    </div>
-    <div class="col-9">
-       
-      <h3 style="color:red ;">Emergency</h3>  
-      <br><br>
-      <h4 style="color:rgb(13, 139, 22) ;">Hi , {{this.userData.username}}</h4> 
+  <div class="col-3">
+    <app-dashboard></app-dashboard>
+  </div>
+  <div class="col-9">
 
-     <div class ="container">
-          <h2>Type of Emergency:</h2>
-          <form action="">
-          <ul>
+    <h3 style="color:red ;">Emergency</h3>
+    <br><br>
+    <h4 style="color:rgb(13, 139, 22) ;">Hi , {{this.userData.username}}</h4>
+
+    <div class="container">
+      <h2>Type of Emergency:</h2>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <ul>
           <li>
-            <input type="radio" id="f-option" name="selector">
+            <input type="radio" id="f-option" formControlName="message" name="message" value="Delay due to traffic">
             <label for="f-option">Delay due to traffic </label>
-            
+
             <div class="check"></div>
           </li>
-          
+
           <li>
-            <input type="radio" id="s-option" name="selector">
+            <input type="radio" id="s-option" value="Driver is late" formControlName="message" name="message">
             <label for="s-option">Driver is late</label>
-            
-            <div class="check"><div class="inside"></div></div>
-          </li>
-          
-          <li>
-            <input type="radio" id="t-option" name="selector">
-            <label for="t-option">Delay in meetings</label>
-            
-            <div class="check"><div class="inside"></div></div>
+
+            <div class="check">
+              <div class="inside"></div>
+            </div>
           </li>
 
           <li>
-            <input type="radio" id="q-option" name="selector">
+            <input type="radio" id="t-option" value="Delay in meetings" formControlName="message" name="message">
+            <label for="t-option">Delay in meetings</label>
+
+            <div class="check">
+              <div class="inside"></div>
+            </div>
+          </li>
+
+          <li>
+            <input type="radio" id="q-option" value="Task postponed" formControlName="message" name="message">
             <label for="q-option">Task postponed</label>
-            
-            <div class="check"><div class="inside"></div></div>
+
+            <div class="check">
+              <div class="inside"></div>
+            </div>
           </li>
 
           <div class="form-group">
             <li>
-              <input type="radio" id="r-option" name="selector">
+              <input type="radio" id="r-option" value="Other" formControlName="message" name="message">
               <label for="r-option">Other</label>
-              
-              <div class="check"><div class="inside"></div></div>
+
+              <div class="check">
+                <div class="inside"></div>
+              </div>
             </li>
-            <textarea class="form-control" rows="5" id="comment" placeholder="Type your emergency here..."></textarea>
+            <textarea class="form-control" rows="5" id="message" formControlName="message"
+              placeholder="Type your emergency here..."></textarea>
           </div>
           <button class="btn btn-danger">Submit</button>
         </ul>
       </form>
-        </div>
-        
-        
+    </div>
