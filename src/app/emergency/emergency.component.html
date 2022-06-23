@@ -6,43 +6,53 @@
     <div class="col-9">
        
       <h3 style="color:red ;">Emergency</h3>  
-     
-    
-   
+      <br><br>
+      <h4 style="color:rgb(13, 139, 22) ;">Hi , {{this.userData.username}}</h4> 
 
-     <div class ="card" style="margin-right: 30%;">
-        <br>
-        <h5 style="margin:10px ;">Hi , {{this.userData.username}}</h5>
-
-
-        <div class="container">
-  
-          <h2>Your favorite thing in the world:</h2>
-          
+     <div class ="container">
+          <h2>Type of Emergency:</h2>
+          <form action="">
           <ul>
           <li>
             <input type="radio" id="f-option" name="selector">
-            <label for="f-option">Pizza</label>
+            <label for="f-option">Delay due to traffic </label>
             
             <div class="check"></div>
           </li>
           
           <li>
             <input type="radio" id="s-option" name="selector">
-            <label for="s-option">Bacon</label>
+            <label for="s-option">Driver is late</label>
             
             <div class="check"><div class="inside"></div></div>
           </li>
           
           <li>
             <input type="radio" id="t-option" name="selector">
-            <label for="t-option">Cats</label>
+            <label for="t-option">Delay in meetings</label>
             
             <div class="check"><div class="inside"></div></div>
           </li>
+
+          <li>
+            <input type="radio" id="q-option" name="selector">
+            <label for="q-option">Task postponed</label>
+            
+            <div class="check"><div class="inside"></div></div>
+          </li>
+
+          <div class="form-group">
+            <li>
+              <input type="radio" id="r-option" name="selector">
+              <label for="r-option">Other</label>
+              
+              <div class="check"><div class="inside"></div></div>
+            </li>
+            <textarea class="form-control" rows="5" id="comment" placeholder="Type your emergency here..."></textarea>
+          </div>
+          <button class="btn btn-danger">Submit</button>
         </ul>
+      </form>
         </div>
         
-        <div class="signature">
-          <p>Made with <i class="much-heart"></i> by <a href="https://codepen.io/AngelaVelasquez">Angela Velasquez</a></p>
-        </div>
+        

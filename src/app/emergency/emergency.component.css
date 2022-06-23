@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
-body, html{
-  height: 100%;
+.row{
   background: #222222;
   font-family: 'Lato', sans-serif;
 }
@@ -10,12 +9,15 @@ body, html{
   display: block;
   position: relative;
   margin: 40px auto;
-  height: auto;
   width: 500px;
   padding: 20px;
 }
 
 h2 {
+  color: #AAAAAA;
+}
+
+h5 {
   color: #AAAAAA;
 }
 
@@ -51,7 +53,6 @@ ul li label{
   height: 30px;
   z-index: 9;
   cursor: pointer;
-  -webkit-transition: all 0.25s linear;
 }
 
 ul li:hover label{
@@ -86,8 +87,6 @@ ul li .check::before {
   top: 5px;
   left: 5px;
   margin: auto;
-  transition: background 0.25s linear;
-  -webkit-transition: background 0.25s linear;
 }
 
 input[type=radio]:checked ~ .check {
@@ -152,10 +151,6 @@ input[type=radio]:checked ~ label{
   text-decoration: none;
   font-weight: bold;
 }
-
-
-/* Styles for alert... 
-by the way it is so weird when you look at your code a couple of years after you wrote it XD */
 
 .alert {
   box-sizing: border-box;
