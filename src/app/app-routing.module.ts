@@ -52,8 +52,8 @@ const routes: Routes = [
   { path: "vehicle-upload",component:VehicleUploadComponent},
   { path:"employee-notifications",component: EmployeeNotificationComponent},
   // { path:"driver-notifications", component: DriverNotificationComponent},
-  { path:"emergency",component: EmergencyComponent},
-  { path:"emergencyView",component: EmergencyViewComponent},
+  { path:"emergency",component: EmergencyComponent },
+  { path:"emergencyView",component: EmergencyViewComponent, canActivate: [ManagerGuard]},
 ];
 
 @NgModule({

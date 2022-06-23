@@ -99,7 +99,14 @@
           </div>
           <div class="input-box">
             <span class="details">Position <b style="color:red">*</b></span>
-            <input formControlName="position" id="position" type="text" placeholder="Position" class="form-control">
+            <select [ngModel]="position" class="form-control" formControlName="position" id="position" class="ms-1 d-block w-100" required>
+                <option></option>
+                  <option value="employee">Employee</option>
+                  <option value="manager">Manager</option>
+                  <option value="transporter">Transport Devision Manager</option>
+                  <option value="driver">Driver</option>
+
+            </select>
             <div *ngIf="f['position'].touched && f['position'].invalid" class="alert alert-danger">
               <div *ngIf="f['position'].errors && f['position'].errors['required']">Position is required.</div>
 

@@ -98,6 +98,14 @@
         <br>
         <br>
       </li>
+
+      <li>
+        <a routerLink="/emergencyView" *ngIf="_auth.mngLoggedIn()">
+          <i class="zmdi zmdi-settings"></i>Emergency List
+        </a>
+        <br>
+        <br>
+      </li>
       
       <li>
           <button class="btn btn-light" (click)="_auth.logoutUser()">Log out</button>
