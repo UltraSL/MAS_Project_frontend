@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MouseEvent } from '@agm/core';
 import { Router } from '@angular/router';
 import { RequestService } from 'src/services/request.service';
-import { AgmMap } from '@agm/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-request',
@@ -44,7 +44,7 @@ export class RequestComponent implements OnInit {
   ds: google.maps.DirectionsService;
   dr: google.maps.DirectionsRenderer;
   time: any;
-  constructor(private _request: RequestService, private _router: Router) {}
+  constructor(private _request: RequestService, private _router: Router,private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
@@ -55,6 +55,14 @@ export class RequestComponent implements OnInit {
       suppressMarkers: true,
     });
   }
+  form: FormGroup = this.fb.group({
+    reason: ['', Validators.required],
+    vehicleType: ['', Validators.required],
+    from: ['', Validators.required],
+    to: ['', Validators.required],
+    dateOfTrip: ['', Validators.required],
+    timeOfTrip: ['', Validators.required],
+  });
 
   From(address: any) {
     this.userAddressFrom = address.formatted_address;
@@ -108,6 +116,7 @@ export class RequestComponent implements OnInit {
   }
 //user_image
   sendRequest() {
+    console.log("dammika");
     this.empRequest.user_id = this.userData._id;
     this.empRequest.username = this.userData.username;
     this.empRequest.managerUserName = this.userData.supervisorName;

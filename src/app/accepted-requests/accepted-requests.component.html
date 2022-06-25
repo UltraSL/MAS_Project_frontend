@@ -15,8 +15,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let u of searchedRequests">
-            <th scope="row">{{u._id}}</th>
+          <tr *ngFor="let u of searchedRequests;let i= index">
+            <th scope="row">{{i+1}}</th>
             <td>{{u.isDriverAccepted}}</td>
             <td><button class="btn btn-danger" routerLink="/view-request-details" (click)="getId(u._id)">Click to View</button></td>
           </tr>
