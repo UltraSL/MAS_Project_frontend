@@ -18,8 +18,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let u of searchedRequests">
-            <th scope="row" [(ngModel)]="reqId" ng-value="reqId=u._id">{{u._id}}</th>
+          <tr *ngFor="let u of searchedRequests ;let i= index">
+            <th scope="row" [(ngModel)]="reqId" ng-value="reqId=u._id">{{i+1}}</th>
             <td>{{u.status}}</td>
             <td><button class="btn btn-danger" routerLink="/view-request-details" (click)="getId(u._id)">Click to View</button></td>
             <td scope="row">
