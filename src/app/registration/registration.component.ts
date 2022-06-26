@@ -58,8 +58,13 @@ export class RegistrationComponent implements OnInit {
     mobile: new FormControl('', [
       Validators.required,
       Validators.minLength(10),
+      Validators.pattern('07[1,2,4,5,6,7,8][0-9]+'),
+
     ]),
-    NICNumber: new FormControl('', [Validators.required]),
+    NICNumber: new FormControl('', [Validators.required,
+      Validators.pattern('[0-9]{9}[V|X|v|x]'),
+    
+    ]),
     department: new FormControl('', [Validators.required]),
     supervisorName: new FormControl('', [Validators.required]),
   },
