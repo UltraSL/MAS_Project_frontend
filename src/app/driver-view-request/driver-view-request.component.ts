@@ -14,6 +14,7 @@ export class DriverViewRequestComponent implements OnInit {
   updateRequest: any = {};
   userData: any = {};
   updateDriver: any = {};
+  btnDisabled = false;
 
   constructor(
     private request: RequestService,
@@ -40,6 +41,7 @@ export class DriverViewRequestComponent implements OnInit {
   approveRejectRequest(id: any, isDriverAccepted: any, distance: any) {
     this.updateRequest._id = id;
     this.updateRequest.isDriverAccepted = isDriverAccepted;
+    this.btnDisabled = true;
 
     if (isDriverAccepted) {
       this.updateDriver.distance = distance;
@@ -57,7 +59,9 @@ export class DriverViewRequestComponent implements OnInit {
       (res) => {
         this.updateRequest.push = res;
         window.alert('successfully Updated');
-        this._router.navigate(['/driver-view-requests']);
+        this._router.navigate(['/driver-view-requests']).then(() => {
+          window.location.reload();
+        });
       },
       (err) => {
         console.log(err);

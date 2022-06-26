@@ -19,8 +19,8 @@
             <th scope="row">{{i+1}}</th>
             <td>{{u.status}}</td>
             <td><button class="btn btn-danger" routerLink="/view-request-details" (click)="getId(u._id)">Click to View</button></td>
-            <td><button class="btn btn-danger" (click)="approveRejectRequest(u._id, true,u.distance)">Accept</button></td>
-            <td><button class="btn btn-light" (click)="approveRejectRequest(u._id, false,u.distance)">Reject</button></td>
+            <td><button [disabled]="u.isDriverAccepted" class="btn btn-danger" (click)="approveRejectRequest(u._id, true,u.distance)">Accept</button></td>
+            <td><button [disabled]="!u.isDriverAccepted" class="btn btn-light" (click)="approveRejectRequest(u._id, false,u.distance)">Reject</button></td>
           </tr>
         </tbody>
       </table>

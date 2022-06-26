@@ -51,7 +51,7 @@ const routes: Routes = [
   { path : 'accepted-requests', component : AcceptedRequestsComponent },
   { path: "vehicle-upload",component:VehicleUploadComponent},
   { path:"employee-notifications",component: EmployeeNotificationComponent},
-  // { path:"driver-notifications", component: DriverNotificationComponent},
+   { path:"driver-notifications", component: DriverNotificationComponent},
   { path:"emergency",component: EmergencyComponent },
   { path:"emergencyView",component: EmergencyViewComponent, canActivate: [ManagerGuard]},
 ];
