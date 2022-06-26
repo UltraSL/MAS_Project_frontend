@@ -40,7 +40,7 @@
             <input   (change)="onFileSelect($event)" formControlName="ads" type="file" required />
          
          </div>
-        <button type="submit" class="btn btn-danger">Submit</button>
+        <button type="submit" class="btn btn-danger"  [disabled]="form.invalid">Submit</button>
     </form>
 </div> 
 </div>
