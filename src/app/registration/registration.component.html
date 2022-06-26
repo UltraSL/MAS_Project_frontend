@@ -113,6 +113,8 @@
               <div *ngIf="f['NICNumber'].errors && f['NICNumber'].errors['required']">NICNumber is required.</div>
               <div *ngIf="f['NICNumber'].errors && f['NICNumber'].errors['minlength']">NICNumber should be 10 character.
               </div>
+              <div *ngIf="f['NICNumber'].errors && f['NICNumber'].errors['pattern']"> should be NICNumber.
+              </div>
             </div>
 
           </div>
@@ -122,6 +124,8 @@
             <div *ngIf="f['mobile'].touched && f['mobile'].invalid" class="alert alert-danger">
               <div *ngIf="f['mobile'].errors && f['mobile'].errors['required']">Mobile number is required.</div>
               <div *ngIf="f['mobile'].errors && f['mobile'].errors['minlength']">Mobile number should be 10 character.
+              </div>
+              <div *ngIf="f['mobile'].errors && f['mobile'].errors['pattern']"> Should be mobile Number.
               </div>
             </div>
           </div>
