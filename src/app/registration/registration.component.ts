@@ -94,6 +94,34 @@ export class RegistrationComponent implements OnInit {
         if (
           res.code == 200 &&
           res.success == true &&
+          res.message == 'username already available'
+        ) {
+          alert(res.message);
+          console.log(res);
+        }
+        if (
+          res.code == 200 &&
+          res.success == true &&
+          res.message == 'Emp Number already available'
+        ) {
+          alert(res.message);
+          console.log(res);
+        }
+
+
+      
+        if (
+          res.code == 200 &&
+          res.success == true &&
+          res.message == 'NIC already available'
+        ) {
+          alert(res.message);
+          console.log(res);
+        }
+
+        if (
+          res.code == 200 &&
+          res.success == true &&
           res.message == 'Registration Successfully'
         ) {
           alert(res.message);
