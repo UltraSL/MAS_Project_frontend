@@ -18,4 +18,7 @@ export class EmergencyService {
     return this.http.get<any>('http://localhost:8000/emergency/getAllEmergencies')
   }
 
+  deleteEmergency(id : string){
+    return this.http.delete<any>('http://localhost:8000/emergency/deleteEmergencyById/'+id)
+  }
 }

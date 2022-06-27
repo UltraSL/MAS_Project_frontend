@@ -19,6 +19,14 @@ export class EmergencyViewComponent implements OnInit {
       );
     }
   
+    deleteEmergency(id: string) {
+      this.emergency.deleteEmergency(id).subscribe((res: any) => {
+        console.log(res);
+        this.ngOnInit();
+        alert("delete sucessfull");
+      }
+      );
+    }
 //get add data from emergency service
 
 
