@@ -122,6 +122,16 @@ export class RegistrationComponent implements OnInit {
         if (
           res.code == 200 &&
           res.success == true &&
+          res.message == 'Mobile Number already available'
+        ) {
+          alert(res.message);
+          console.log(res);
+        }
+
+
+        if (
+          res.code == 200 &&
+          res.success == true &&
           res.message == 'Registration Successfully'
         ) {
           alert(res.message);
