@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RequestService } from 'src/services/request.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-request',
   templateUrl: './request.component.html',
@@ -44,12 +45,15 @@ export class RequestComponent implements OnInit {
   ds: google.maps.DirectionsService;
   dr: google.maps.DirectionsRenderer;
   time: any;
+
+  //today's date
+todayDate:Date = new Date();
   constructor(private _request: RequestService, private _router: Router,private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
     this.setCurrentLocation();
-
+    console.log("Hi"+this.todayDate)
     this.ds = new google.maps.DirectionsService();
     this.dr = new google.maps.DirectionsRenderer({
       suppressMarkers: true,

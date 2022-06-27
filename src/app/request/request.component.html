@@ -17,9 +17,16 @@
           </div>
           <div class="mb-3">
             <label for="UrunAdi" class="form-label">Date of Trip*</label>
-            <input type="date" class="form-control" id="UrunAdi" required placeholder="Select Time"
-              [(ngModel)]="empRequest.dateOfTrip" formControlName="dateOfTrip">
-            <input type="time" class="form-control" id="UrunAdi" required placeholder="Select Time"
+
+            <!-- <input type="date" [min]="todayDate" class="form-control" id="UrunAdi" required placeholder="Select Time"
+              [(ngModel)]="empRequest.dateOfTrip" formControlName="dateOfTrip"> -->
+
+              <input class="form-control" matInput [matDatepicker]="picker" [min]="todayDate" [(ngModel)]="empRequest.dateOfTrip" placeholder="Select date"
+               formControlName="dateOfTrip"> 
+            <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            
+              <input type="time" class="form-control" id="UrunAdi" required placeholder="Select Time"
               [(ngModel)]="empRequest.timeOfTrip" formControlName="timeOfTrip">
           </div>
           <div class="mb-3">
@@ -61,7 +68,7 @@
           <div class="d-flex justify-content-center">
             <button type="submit" 
               class="btn btn-danger text-white btn-outline-success form-control w-50 m-3"
-              id="ekleButton"  (click)="sendRequest()"  [disabled]="form.invalid" >Submit</button>
+              id="ekleButton"  (click)="sendRequest(); setRoutePolyline()" [disabled]="form.invalid" >Submit</button>
             
           </div>
 
