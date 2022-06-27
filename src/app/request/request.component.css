@@ -17,7 +17,9 @@ agm-map {
     width: 50px;
 }
 
-
+mat-datepicker-toggle {
+    float: right;
+}
 
 li {
     margin-right: 3.5em;

@@ -42,6 +42,7 @@ export class DriverViewRequestComponent implements OnInit {
     this.updateRequest._id = id;
     this.updateRequest.isDriverAccepted = isDriverAccepted;
     this.btnDisabled = true;
+    console.log(isDriverAccepted)
 
     if (isDriverAccepted) {
       this.updateDriver.distance = distance;
