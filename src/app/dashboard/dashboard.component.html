@@ -108,6 +108,14 @@
       </li>
       
       <li>
+        <a routerLink="/feedbackView" *ngIf="_auth.mngLoggedIn()">
+          <i class="zmdi zmdi-settings"></i>Feedback List
+        </a>
+        <br>
+        <br>
+      </li>
+      
+      <li>
           <button class="btn btn-light" (click)="_auth.logoutUser()">Log out</button>
         <br>
         <br>

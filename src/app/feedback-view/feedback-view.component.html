@@ -1,0 +1,27 @@
+
+
+<div class="row">
+    <div class="col-3">
+      <app-dashboard></app-dashboard>
+    </div>
+    <div class="col-9">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">User Name</th>
+     
+    
+      <th scope="col">Email</th>
+      <th scope="col-3">Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of feedBackData;let i= index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{f.name}}</td>
+      <td>{{f.email}}</td>
+      <td>{{f.message}}</td>
+    
+    </tr>
+  </tbody>

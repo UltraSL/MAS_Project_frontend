@@ -35,6 +35,7 @@ import { EmployeeNotificationComponent } from './employee-notification/employee-
 import { DriverNotificationComponent } from './driver-notification/driver-notification.component';
 import { EmergencyComponent } from './emergency/emergency.component';
 import { EmergencyViewComponent } from './emergency-view/emergency-view.component';
+import { FeedbackViewComponent } from './feedback-view/feedback-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { EmergencyViewComponent } from './emergency-view/emergency-view.componen
        EmployeeNotificationComponent,
        DriverNotificationComponent,
        EmergencyComponent,
-       EmergencyViewComponent
+       EmergencyViewComponent,
+       FeedbackViewComponent
   ],
   imports: [
     BrowserModule,
