@@ -12,6 +12,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EmergencyViewComponent } from './emergency-view/emergency-view.component';
 import { EmergencyComponent } from './emergency/emergency.component';
 import { EmployeeNotificationComponent } from './employee-notification/employee-notification.component';
+import { FeedbackViewComponent } from './feedback-view/feedback-view.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ManagerGuard } from './guards/manager.guard';
 import { TransportManagerGuard } from './guards/transport-manager.guard';
@@ -54,6 +55,7 @@ const routes: Routes = [
    { path:"driver-notifications", component: DriverNotificationComponent},
   { path:"emergency",component: EmergencyComponent },
   { path:"emergencyView",component: EmergencyViewComponent, canActivate: [ManagerGuard]},
+  { path:"feedbackView",component: FeedbackViewComponent },
 ];
 
 @NgModule({
