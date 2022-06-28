@@ -10,6 +10,7 @@
       <th scope="col">User Name</th>
      
       <th scope="col">Message</th>
+      <th scope="col">Mobile</th>
       <th scope="col">Date</th>
       <th scope="col">Delete</th>
     </tr>
@@ -19,6 +20,7 @@
       <th scope="row">{{i+1}}</th>
       <td>{{emergency.username}}</td>
       <td>{{emergency.message}}</td>
+      <td>{{emergency.mobile}}</td>
       <td>{{emergency.date}}</td>
       <td> <button type="button" style="width: 100px;" (click)="deleteEmergency(emergency._id)" class="btn btn-danger">Delete</button></td>
     </tr>
