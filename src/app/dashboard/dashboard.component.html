@@ -58,6 +58,14 @@
         <br>
       </li>
 
+      <li *ngIf="_auth.mngLoggedIn">
+        <a routerLink="/notification">
+          <i class="zmdi zmdi-calendar"></i> Notifications
+        </a>
+        <br>
+        <br>
+      </li>
+
       <li>
         <a routerLink="/vehicle-list" *ngIf="_auth.TransportMngLoggedIn()">
           <i class="zmdi zmdi-calendar"></i> View Vehicles
