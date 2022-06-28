@@ -3,12 +3,13 @@ import { MouseEvent } from '@agm/core';
 import { Router } from '@angular/router';
 import { RequestService } from 'src/services/request.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-request',
   templateUrl: './request.component.html',
   styleUrls: ['./request.component.css'],
+  providers: [DatePipe]
 })
 export class RequestComponent implements OnInit {
   title: string = 'AGM project';
@@ -47,10 +48,13 @@ export class RequestComponent implements OnInit {
   time: any;
 
   //today's date
-todayDate:Date = new Date();
-  constructor(private _request: RequestService, private _router: Router,private fb: FormBuilder) {}
+  todayDate:any;
+  constructor(private _request: RequestService, private _router: Router,private fb: FormBuilder,  private datePipe:DatePipe) {}
+
+ 
 
   ngOnInit(): void {
+    this.todayDate =this.datePipe.transform( new Date(),'yyyy-MM-dd');
     this.userData = JSON.parse(localStorage.getItem('user') || '{}');
     this.setCurrentLocation();
     console.log("Hi"+this.todayDate)
@@ -169,4 +173,8 @@ todayDate:Date = new Date();
       }
     });
   }
+
+
+ 
+
 }

@@ -21,11 +21,14 @@
             <!-- <input type="date" [min]="todayDate" class="form-control" id="UrunAdi" required placeholder="Select Time"
               [(ngModel)]="empRequest.dateOfTrip" formControlName="dateOfTrip"> -->
 
-              <input class="form-control" matInput [matDatepicker]="picker" [min]="todayDate" [(ngModel)]="empRequest.dateOfTrip" placeholder="Select date"
-               formControlName="dateOfTrip"> 
-            <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
+              <input type="date"    class="form-control"[min]="todayDate" [(ngModel)]="empRequest.dateOfTrip" placeholder="Select date"
+               formControlName="dateOfTrip" >
+           <!-- <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-            
+            -->
+
+
+
               <input type="time" class="form-control" id="UrunAdi" required placeholder="Select Time"
               [(ngModel)]="empRequest.timeOfTrip" formControlName="timeOfTrip">
           </div>

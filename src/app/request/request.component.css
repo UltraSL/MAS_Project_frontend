@@ -19,6 +19,7 @@ agm-map {
 
 mat-datepicker-toggle {
     float: right;
+    margin-bottom: 10px;
 }
 
 li {
