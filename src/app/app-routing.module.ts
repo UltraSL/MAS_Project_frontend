@@ -54,7 +54,7 @@ const routes: Routes = [
   { path:"employee-notifications",component: EmployeeNotificationComponent},
    { path:"driver-notifications", component: DriverNotificationComponent},
   { path:"emergency",component: EmergencyComponent },
-  { path:"emergencyView",component: EmergencyViewComponent, canActivate: [ManagerGuard]},
+  { path:"emergencyView",component: EmergencyViewComponent, },
   { path:"feedbackView",component: FeedbackViewComponent },
 ];
 

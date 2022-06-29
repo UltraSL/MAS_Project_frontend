@@ -100,7 +100,7 @@
       </li>
 
       <li>
-        <a routerLink="/emergencyView" *ngIf="_auth.mngLoggedIn()">
+        <a routerLink="/emergencyView" *ngIf="_auth.mngLoggedIn() || _auth.TransportMngLoggedIn() ">
           <i class="zmdi zmdi-settings"></i>Emergency List
         </a>
         <br>
