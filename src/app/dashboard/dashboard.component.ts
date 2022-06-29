@@ -9,9 +9,15 @@ import { AuthService } from '../auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public _auth : AuthService , private request : RequestService) { }
+  constructor(public _auth : AuthService , private _request : RequestService) { }
 
+  userData : any = {}
+  role : any = {}
+  notifications: any = {}
+  message : any = {}
+  
   ngOnInit(): void {
+
   }
   toggle = true;
   status = "Enable";
