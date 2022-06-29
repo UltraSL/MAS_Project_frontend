@@ -1,6 +1,29 @@
 
 
   <router-outlet>
+      <div class = "icons" *ngIf="_auth.empLoggedIn() || _auth.mngLoggedIn() || _auth.TransportMngLoggedIn() || _auth.DriverLoggedIn()">
+      <div class = "notification">
+        
+        <div class = "notBtn">
+          <div class = "number">{{notifications.length}}</div>
+          <i class="fa fa-bell"></i>
+            <div class = "box">
+              <div class = "display">
+                <div class = "cont">
+                   <div class = "sec new" *ngFor="let u of notifications">
+                     <div class = "profCont">
+                     <img class = "profile" src={{u.user_image}}>
+                      </div>
+                     <div class = "txt">{{message}} {{u.status}}</div>
+                    <div class = "txt sub">{{u.dateOfTrip}}</div>
+                  </div>
+               </div>
+              </div>
+           </div>
+        </div>
+      </div>
+      </div>
+
   </router-outlet>
 
   
